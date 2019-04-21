@@ -3,7 +3,7 @@
 
 <t:base title="Visualizar Cadastro">
 
-  <table class="table">
+  <table class="table text-justify">
     <tbody>
       <tr><th scope="row">Nome:</th><td id="nome"> Carlos Almeida de Souza</td></tr>
       <tr><th scope="row">RG:</th><td id="rg">15.161.171-1</td></tr>
