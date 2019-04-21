@@ -2,23 +2,25 @@
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
 <t:base title="Busca por RG">
-    <section>
-        <form id="busca_rg" autocomplete="on">
-            <p class="row">
-                <label for="rg">RG</label>
-                <input class="right" type="text" id="rg" autofocus="" placeholder="Digite seu RG aqui">
-                <input type="submit" value="Buscar">
-            </p>
-        </form>
-    </section>
-    <table border="2">
-        <tbody>
+
+    <form id="busca_rg" autocomplete="on">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend"><label class="input-group-text" id="rgtag" for="rg">RG: </label></div>
+          <input class="form-control" aria-label="RG" aria-describedby="rgtag" type="text" id="rg" autofocus placeholder="00.000.000-0">
+          <input class="btn btn-outline-primary" type="button" type="submit" value="Buscar">
+        </div>
+    </form>
+
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
             <tr>
-                <td>Nome:</td>
-                <td>CPF:</td>
-                <td>E-mail:</td>
-                <td>Tipo Sanguíneo:</td>
+                <th>Nome:</th>
+                <th>CPF:</th>
+                <th>E-mail:</th>
+                <th>Tipo Sanguíneo:</th>
             </tr>
+        </thead>
+        <tbody>
             <tr>
                 <td><a href="visualizarCadastro.jsp">Carlos Silva Sauro</a></td>
                 <td>555.555.555-55</td>
