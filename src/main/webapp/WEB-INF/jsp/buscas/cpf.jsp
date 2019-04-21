@@ -2,23 +2,23 @@
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
 <t:base title="Busca por CPF">
-    <section>
         <form id="busca_cpf" autocomplete="on">
-            <p class="row">
-                <label for="cpf">CPF</label>
-                <input class="right" type="text" id="rg" autofocus="" placeholder="Digite seu CPF aqui">
-                <input type="submit" value="Buscar">
-            </p>
+          <div class="input-group mb-3">
+                <div class="input-group-prepend"><label class="input-group-text" id="cpftag" for="cpf">CPF: </label></div>
+                <input class="form-control" aria-label="CPF" aria-describedby="cpftag" type="text" id="cpf" autofocus="" placeholder="000.000.000-00">
+                <input class="btn btn-outline-primary" type="button" type="submit" value="Buscar">
+          </div>
         </form>
-    </section>
-    <table border="2">
-        <tbody>
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
             <tr>
-                <td>Nome:</td>
-                <td>E-mail:</td>
-                <td>RG:</td>
-                <td>Tipo Sanguíneo:</td>
+                <th>Nome:</th>
+                <th>E-mail:</th>
+                <th>RG:</th>
+                <th>Tipo Sanguíneo:</th>
             </tr>
+        </thead>
+        <tbody>
             <tr>
                 <td><a href="visualizarCadastro.jsp">Carlos Silva Sauro</a></td>
                 <td>carlos@carlosmail.com</td>
