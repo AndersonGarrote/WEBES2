@@ -2,23 +2,25 @@
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
 <t:base title="Busca por E-mail">
-    <section>
-        <form id="busca_email" autocomplete="on">
-            <p class="row">
-                <label for="email">E-mail</label>
-                <input class="right" type="email" id="email" autofocus="" placeholder="Digite seu e-mail aqui">
-                <input type="submit" value="Buscar">
-            </p>
-        </form>
-    </section>
-    <table border="2">
-        <tbody>
+
+    <form id="busca_email" autocomplete="on">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend"><label class="input-group-text" id="emailtag" for="email">E-mail: </label></div>
+            <input class="form-control" aria-label="E-mail" aria-describedby="emailtag" type="email" id="email" autofocus placeholder="exemplo@email.com">
+            <input class="btn btn-outline-primary" type="button" type="submit" value="Buscar">
+        </div>
+    </form>
+
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
             <tr>
-                <td>Nome:</td>
-                <td>CPF:</td>
-                <td>RG:</td>
-                <td>Tipo Sanguíneo:</td>
+                <th>Nome:</th>
+                <th>CPF:</th>
+                <th>RG:</th>
+                <th>Tipo Sanguíneo:</th>
             </tr>
+        </thead>
+        <tbody>
             <tr>
                 <td><a href="visualizarCadastro.jsp">Carlos Silva Sauro</a></td>
                 <td>555.555.555-55</td>
