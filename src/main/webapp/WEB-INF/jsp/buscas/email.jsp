@@ -1,38 +1,22 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
 <t:base title="Busca por E-mail">
-
-    <form id="busca_email" autocomplete="on">
+    <form id="form-email" type="get" action="" autocomplete="on">
         <div class="input-group mb-3">
-            <div class="input-group-prepend"><label class="input-group-text" id="emailtag" for="email">E-mail: </label></div>
-            <input class="form-control" aria-label="E-mail" aria-describedby="emailtag" type="email" id="email" autofocus placeholder="exemplo@email.com">
+            <div class="input-group-prepend"><label class="input-group-text" id="email-label" for="email">E-mail: </label></div>
+            <input class="form-control" aria-label="E-mail" aria-describedby="email-label" type="email" id="email" name="email" autofocus="" placeholder="exemplo@dominio.com" value="${param.email}">
             <input class="btn btn-outline-primary" type="button" type="submit" value="Buscar">
         </div>
     </form>
+    <c:choose>
+        <c:when test="${pessoa != null}">
+            <t:ficha></t:ficha>
+        </c:when>
+        <c:otherwise>
 
-    <table class="table table-bordered table-striped table-hover">
-        <thead>
-            <tr>
-                <th>Nome:</th>
-                <th>CPF:</th>
-                <th>RG:</th>
-                <th>Tipo Sanguíneo:</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><a href="visualizarCadastro.jsp">Carlos Silva Sauro</a></td>
-                <td>555.555.555-55</td>
-                <td>55.555.555-5</td>
-                <td>O+</td>
-            </tr>
-            <tr>
-                <td>Thiago Yussuki Uehara</td>
-                <td>123.456.789-00</td>
-                <td>12.345.678-9</td>
-                <td>A+</td>
-            </tr>
-        </tbody>
-    </table>
+        </c:otherwise>
+    </c:choose>
+
 </t:base>

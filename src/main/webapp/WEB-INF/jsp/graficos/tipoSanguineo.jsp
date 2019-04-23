@@ -1,42 +1,29 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
-<t:base title="Gráficos de Altura">
+<t:base title="Gráficos de Tipo Sanguíneo">
     <jsp:attribute name="js">
         <script>
             $(document).ready(function() {
 
                 $("#submit").click(function(e) {
-
                     e.preventDefault();
 
-                    var sexo = $('#sexo').is(':checked');
+                    var labels = ['A+', 'A-', 'B+', 'B-', 'O+', 'O-'];
 
-                    var labels = sexo ? ['Masculino', 'Feminino'] : ['Altura'];
+                    var values = [];
 
-                    var data = [];
-
-                    labels.forEach((label) => {
-
-                        values = [];
-
-                        for(i = 0; i < 100; i++) {
-                            values.push(Math.random() + 1);
-                        }
-
-                        data.push({
-                            x: values,
-                            type: 'histogram',
-                            name: label,
-                            opacity: 0.75,
-                        });
-
+                    labels.forEach(() => {
+                        values.push(Math.floor(Math.random() * 100) + 1);
                     });
 
-                    var layout = { barmode: "overlay" };
+                    var data = [{
+                        values: values,
+                        labels: labels,
+                        type: 'pie',
+                    }]
 
-                    Plotly.newPlot("myDiv", data, layout);
-
+                    Plotly.newPlot("myDiv", data);
                 });
 
             });
@@ -75,8 +62,6 @@
                 <option value="SE">Sergipe</option>
                 <option value="TO">Tocantins</option>
             </select>
-            <label for="sexo">Separar por sexo</label>
-            <input type="checkbox" name="sexo" id="sexo">
             <input type="submit" value="Gerar gráfico" id="submit">
         </form>
         <div id="myDiv"></div>

@@ -78,3 +78,7 @@ footer {
 table {
     text-align: center;
 }
+
+.sortable th {
+    cursor: pointer;
+}

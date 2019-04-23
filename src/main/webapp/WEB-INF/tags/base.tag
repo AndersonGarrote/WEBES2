@@ -1,5 +1,4 @@
 <%@ tag description="Base template" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ attribute name="title" required="true" %>
 <%@ attribute name="js" fragment="true" %>
 

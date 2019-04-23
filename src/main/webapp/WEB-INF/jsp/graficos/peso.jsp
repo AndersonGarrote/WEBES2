@@ -1,7 +1,7 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
-<t:base title="Gráficos de Altura">
+<t:base title="Gráficos de Peso">
     <jsp:attribute name="js">
         <script>
             $(document).ready(function() {
@@ -12,7 +12,7 @@
 
                     var sexo = $('#sexo').is(':checked');
 
-                    var labels = sexo ? ['Masculino', 'Feminino'] : ['Altura'];
+                    var labels = sexo ? ['Masculino', 'Feminino'] : ['Peso'];
 
                     var data = [];
 
@@ -21,7 +21,7 @@
                         values = [];
 
                         for(i = 0; i < 100; i++) {
-                            values.push(Math.random() + 1);
+                            values.push(Math.floor(Math.random() * 100) + 30);
                         }
 
                         data.push({
