@@ -33,7 +33,9 @@
             <input class="form-control" id="cidade" type="text" name="cidade" value="${param.cidade}">
             <label for="estado">Estado</label>
             <input class="form-control" id="estado" type="text" name="estado" value="${param.estado}">
-            <input class="btn btn-dark my-2" type="submit" value="Buscar">
+            <button class="btn btn-dark my-2">
+                <span class="oi oi-magnifying-glass" title="Buscar" aria-hidden="true"></span> Buscar
+            </button>
         </form>
         <c:choose>
             <c:when test="${pessoas != null}">
@@ -46,6 +48,7 @@
                             <th>Data de nascimento</th>
                             <th>Cidade</th>
                             <th>Estado</th>
+                            <th>Ações</th>
                         </tr>
                     </thead>
                     <tr>
@@ -54,6 +57,11 @@
                         <td>1924-06-27</td>
                         <td>Furtado do Norte</td>
                         <td>SE</td>
+                        <td>
+                            <a class="btn btn-dark" href="/buscas/id?id=ID">
+                                <span class="oi oi-eye"></span> Visualizar
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td>Daniela Garcia</td>
@@ -61,6 +69,11 @@
                         <td>1924-05-27</td>
                         <td>Porto Constância</td>
                         <td>SE</td>
+                        <td>
+                            <a class="btn btn-dark" href="/buscas/id?id=ID">
+                                <span class="oi oi-eye"></span> Visualizar
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td>David Vicente Matos</td>
@@ -68,6 +81,11 @@
                         <td>1956-03-01</td>
                         <td>Aaron do Leste</td>
                         <td>RN</td>
+                        <td>
+                            <a class="btn btn-dark" href="/buscas/id?id=ID">
+                                <span class="oi oi-eye"></span> Visualizar
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td>Mia Maia Godói Jr.</td>
@@ -75,6 +93,11 @@
                         <td>1943-11-02</td>
                         <td>São Emílio</td>
                         <td>GO</td>
+                        <td>
+                            <a class="btn btn-dark" href="/buscas/id?id=ID">
+                                <span class="oi oi-eye"></span> Visualizar
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td>Emiliano Anderson Serra</td>
@@ -82,6 +105,11 @@
                         <td>1994-03-30</td>
                         <td>Rocha do Sul</td>
                         <td>BA</td>
+                        <td>
+                            <a class="btn btn-dark" href="/buscas/id?id=ID">
+                                <span class="oi oi-eye"></span> Visualizar
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td>Ashley Sales Prado Sobrinho</td>
@@ -89,6 +117,11 @@
                         <td>1969-11-09</td>
                         <td>Padrão d&#39;Oeste</td>
                         <td>SP</td>
+                        <td>
+                            <a class="btn btn-dark" href="/buscas/id?id=ID">
+                                <span class="oi oi-eye"></span> Visualizar
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td>Pablo Mascarenhas</td>
@@ -96,6 +129,11 @@
                         <td>1971-08-13</td>
                         <td>Natal do Sul</td>
                         <td>PE</td>
+                        <td>
+                            <a class="btn btn-dark" href="/buscas/id?id=ID">
+                                <span class="oi oi-eye"></span> Visualizar
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td>Adriano David de Oliveira</td>
@@ -103,6 +141,11 @@
                         <td>1961-05-02</td>
                         <td>São Gabriel</td>
                         <td>SC</td>
+                        <td>
+                            <a class="btn btn-dark" href="/buscas/id?id=ID">
+                                <span class="oi oi-eye"></span> Visualizar
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td>Joana Sophie Montenegro</td>
@@ -110,6 +153,11 @@
                         <td>1955-06-29</td>
                         <td>Porto Catarina do Norte</td>
                         <td>DF</td>
+                        <td>
+                            <a class="btn btn-dark" href="/buscas/id?id=ID">
+                                <span class="oi oi-eye"></span> Visualizar
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td>Christopher Andres Paes</td>
@@ -117,6 +165,11 @@
                         <td>1954-07-18</td>
                         <td>Santa Carlos do Norte</td>
                         <td>AP</td>
+                        <td>
+                            <a class="btn btn-dark" href="/buscas/id?id=ID">
+                                <span class="oi oi-eye"></span> Visualizar
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td>Mel Duarte</td>
@@ -124,6 +177,11 @@
                         <td>1932-09-16</td>
                         <td>Rocha d&#39;Oeste</td>
                         <td>DF</td>
+                        <td>
+                            <a class="btn btn-dark" href="/buscas/id?id=ID">
+                                <span class="oi oi-eye"></span> Visualizar
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td>Joana Azevedo Jr.</td>
@@ -131,6 +189,11 @@
                         <td>1964-12-18</td>
                         <td>Vila João</td>
                         <td>MG</td>
+                        <td>
+                            <a class="btn btn-dark" href="/buscas/id?id=ID">
+                                <span class="oi oi-eye"></span> Visualizar
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td>Suzana Barros Batista</td>
@@ -138,6 +201,11 @@
                         <td>1952-05-09</td>
                         <td>Galvão do Sul</td>
                         <td>PB</td>
+                        <td>
+                            <a class="btn btn-dark" href="/buscas/id?id=ID">
+                                <span class="oi oi-eye"></span> Visualizar
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td>Paulo Evandro Ramos</td>
@@ -145,6 +213,11 @@
                         <td>1974-02-03</td>
                         <td>Porto Gustavo</td>
                         <td>SE</td>
+                        <td>
+                            <a class="btn btn-dark" href="/buscas/id?id=ID">
+                                <span class="oi oi-eye"></span> Visualizar
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td>Andrea Bonilha</td>
@@ -152,6 +225,11 @@
                         <td>1999-01-05</td>
                         <td>Leon do Leste</td>
                         <td>PA</td>
+                        <td>
+                            <a class="btn btn-dark" href="/buscas/id?id=ID">
+                                <span class="oi oi-eye"></span> Visualizar
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td>Valentina Casanova Neto</td>
@@ -159,6 +237,11 @@
                         <td>1930-01-18</td>
                         <td>Santa Luciano</td>
                         <td>BA</td>
+                        <td>
+                            <a class="btn btn-dark" href="/buscas/id?id=ID">
+                                <span class="oi oi-eye"></span> Visualizar
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td>Paulo Christopher Vale</td>
@@ -166,6 +249,11 @@
                         <td>1990-04-03</td>
                         <td>Vila Miguel</td>
                         <td>SP</td>
+                        <td>
+                            <a class="btn btn-dark" href="/buscas/id?id=ID">
+                                <span class="oi oi-eye"></span> Visualizar
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td>Ariadna Azevedo</td>
@@ -173,6 +261,11 @@
                         <td>1944-02-27</td>
                         <td>Uchoa do Norte</td>
                         <td>DF</td>
+                        <td>
+                            <a class="btn btn-dark" href="/buscas/id?id=ID">
+                                <span class="oi oi-eye"></span> Visualizar
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td>Rebeca Serra Sobrinho</td>
@@ -180,6 +273,11 @@
                         <td>1933-11-06</td>
                         <td>Porto Ricardo do Leste</td>
                         <td>RO</td>
+                        <td>
+                            <a class="btn btn-dark" href="/buscas/id?id=ID">
+                                <span class="oi oi-eye"></span> Visualizar
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td>Hugo Giovane Fidalgo Filho</td>
@@ -187,6 +285,11 @@
                         <td>1985-08-06</td>
                         <td>Cortês d&#39;Oeste</td>
                         <td>ES</td>
+                        <td>
+                            <a class="btn btn-dark" href="/buscas/id?id=ID">
+                                <span class="oi oi-eye"></span> Visualizar
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td>Violeta Ortega Cortês Filho</td>
@@ -194,6 +297,11 @@
                         <td>1954-08-22</td>
                         <td>João do Sul</td>
                         <td>RN</td>
+                        <td>
+                            <a class="btn btn-dark" href="/buscas/id?id=ID">
+                                <span class="oi oi-eye"></span> Visualizar
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td>Luana Juliana Bittencourt</td>
@@ -201,6 +309,11 @@
                         <td>1943-07-18</td>
                         <td>Santa Helena do Sul</td>
                         <td>GO</td>
+                        <td>
+                            <a class="btn btn-dark" href="/buscas/id?id=ID">
+                                <span class="oi oi-eye"></span> Visualizar
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td>Gabriela Assunção Neto</td>
@@ -208,6 +321,11 @@
                         <td>1993-06-26</td>
                         <td>Vila Ariadna do Norte</td>
                         <td>AL</td>
+                        <td>
+                            <a class="btn btn-dark" href="/buscas/id?id=ID">
+                                <span class="oi oi-eye"></span> Visualizar
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td>Agustina Paes</td>
@@ -215,6 +333,11 @@
                         <td>1970-01-08</td>
                         <td>Santa Felipe do Sul</td>
                         <td>SC</td>
+                        <td>
+                            <a class="btn btn-dark" href="/buscas/id?id=ID">
+                                <span class="oi oi-eye"></span> Visualizar
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td>Isabel das Dores Escobar Filho</td>
@@ -222,6 +345,11 @@
                         <td>1992-10-04</td>
                         <td>Alonso do Sul</td>
                         <td>AP</td>
+                        <td>
+                            <a class="btn btn-dark" href="/buscas/id?id=ID">
+                                <span class="oi oi-eye"></span> Visualizar
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td>Ivan Rosa Leal Jr.</td>
@@ -229,6 +357,11 @@
                         <td>1958-11-29</td>
                         <td>Maldonado do Norte</td>
                         <td>SC</td>
+                        <td>
+                            <a class="btn btn-dark" href="/buscas/id?id=ID">
+                                <span class="oi oi-eye"></span> Visualizar
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td>Vitória Fontes</td>
@@ -236,6 +369,11 @@
                         <td>1964-03-26</td>
                         <td>Leandro do Leste</td>
                         <td>PR</td>
+                        <td>
+                            <a class="btn btn-dark" href="/buscas/id?id=ID">
+                                <span class="oi oi-eye"></span> Visualizar
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td>Regina Camacho Neto</td>
@@ -243,6 +381,11 @@
                         <td>1971-06-06</td>
                         <td>Noel do Leste</td>
                         <td>AM</td>
+                        <td>
+                            <a class="btn btn-dark" href="/buscas/id?id=ID">
+                                <span class="oi oi-eye"></span> Visualizar
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td>Fernando Queirós Aragão Filho</td>
@@ -250,6 +393,11 @@
                         <td>1968-09-12</td>
                         <td>Máximo do Norte</td>
                         <td>MT</td>
+                        <td>
+                            <a class="btn btn-dark" href="/buscas/id?id=ID">
+                                <span class="oi oi-eye"></span> Visualizar
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td>Leonardo Campos Neto</td>
@@ -257,6 +405,11 @@
                         <td>1962-04-17</td>
                         <td>Santa Paulina do Sul</td>
                         <td>RN</td>
+                        <td>
+                            <a class="btn btn-dark" href="/buscas/id?id=ID">
+                                <span class="oi oi-eye"></span> Visualizar
+                            </a>
+                        </td>
                     </tr>
                 </table>
                 <nav aria-label="Page navigation example">

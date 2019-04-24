@@ -11,7 +11,7 @@
             <input class="form-control" aria-label="RG" aria-describedby="rg-label" type="text" id="rg" name="rg" autofocus="" placeholder="00.000.000-0" data-mask="00.000.000-0" value="${param.rg}">
             <div class="input-group-append">
                 <button class="btn btn-dark">
-                    <span class="oi oi-magnifying-glass" title="Buscar" aria-hidden="true"></span>
+                    <span class="oi oi-magnifying-glass" title="Buscar" aria-hidden="true"></span> Buscar
                 </button>
             </div>
         </div>

@@ -11,7 +11,7 @@
             <input class="form-control" aria-label="E-mail" aria-describedby="email-label" type="email" id="email" name="email" autofocus="" placeholder="exemplo@dominio.com" value="${param.email}">
             <div class="input-group-append">
                 <button class="btn btn-dark">
-                    <span class="oi oi-magnifying-glass" title="Buscar" aria-hidden="true"></span>
+                    <span class="oi oi-magnifying-glass" title="Buscar" aria-hidden="true"></span> Buscar
                 </button>
             </div>
         </div>
