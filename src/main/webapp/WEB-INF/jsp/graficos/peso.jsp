@@ -33,7 +33,10 @@
 
                     });
 
-                    var layout = { barmode: "overlay" };
+                    var layout = {
+                        title: "Gráfico de peso",
+                        barmode: "overlay"
+                    };
 
                     Plotly.newPlot("grafico", data, layout, { responsive: true });
 

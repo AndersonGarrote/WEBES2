@@ -24,7 +24,11 @@
                         type: 'pie',
                     }]
 
-                    Plotly.newPlot("grafico", data, {}, { responsive: true });
+                    var layout = {
+                        title: "Gráfico de sexo"
+                    };
+
+                    Plotly.newPlot("grafico", data, layout, { responsive: true });
 
                     window.dispatchEvent(new Event('resize'));
 
