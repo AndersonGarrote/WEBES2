@@ -47,7 +47,7 @@
     <jsp:body>
         <form action="">
             <label for="estado">Estado</label>
-            <select name="estado" id="estado">
+            <select class="form-control" name="estado" id="estado">
                 <option value="XX">Todos</option>
                 <option value="AC">Acre</option>
                 <option value="AL">Alagoas</option>
