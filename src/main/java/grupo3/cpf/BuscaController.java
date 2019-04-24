@@ -32,6 +32,18 @@ public class BuscaController {
         pessoa.setTipoSanguineo("A+");
     }
 
+    @GetMapping("/buscas/id")
+    public ModelAndView buscaId(@RequestParam(required = false) String id) {
+        ModelAndView modelAndView = new ModelAndView();
+
+        if (id != null && !"".equals(id)) {
+            modelAndView.addObject("pessoa", pessoa);
+        }
+
+        modelAndView.setViewName("buscas/id");
+        return modelAndView;
+    }
+
     @GetMapping("/buscas/rg")
     public ModelAndView buscaRg(@RequestParam(required = false) String rg) {
         ModelAndView modelAndView = new ModelAndView();
