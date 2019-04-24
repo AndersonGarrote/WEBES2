@@ -40,6 +40,8 @@
 
                     Plotly.newPlot("grafico", data, layout, { responsive: true });
 
+                    window.dispatchEvent(new Event('resize'));
+
                 });
 
             });

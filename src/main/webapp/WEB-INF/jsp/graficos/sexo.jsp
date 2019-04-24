@@ -24,7 +24,10 @@
                         type: 'pie',
                     }]
 
-                    Plotly.newPlot("myDiv", data);
+                    Plotly.newPlot("grafico", data, {}, { responsive: true });
+
+                    window.dispatchEvent(new Event('resize'));
+
                 });
 
             });
@@ -65,6 +68,6 @@
             </select>
             <input type="submit" value="Gerar gráfico" id="submit">
         </form>
-        <div id="myDiv"></div>
+        <div id="grafico"></div>
     </jsp:body>
 </t:base>

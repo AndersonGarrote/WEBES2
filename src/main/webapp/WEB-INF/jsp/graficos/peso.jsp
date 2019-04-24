@@ -35,7 +35,9 @@
 
                     var layout = { barmode: "overlay" };
 
-                    Plotly.newPlot("myDiv", data, layout);
+                    Plotly.newPlot("grafico", data, layout, { responsive: true });
+
+                    window.dispatchEvent(new Event('resize'));
 
                 });
 
@@ -81,6 +83,6 @@
             </div>
             <input class="btn btn-dark my-2" type="submit" value="Gerar gráfico" id="submit">
         </form>
-        <div id="myDiv"></div>
+        <div id="grafico"></div>
     </jsp:body>
 </t:base>
