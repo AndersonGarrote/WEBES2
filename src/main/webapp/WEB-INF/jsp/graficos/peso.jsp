@@ -1,7 +1,7 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
-<t:base title="Gráficos de Peso">
+<t:base title="Gráfico de Peso">
     <jsp:attribute name="js">
         <script>
             $(document).ready(function() {

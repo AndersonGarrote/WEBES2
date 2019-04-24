@@ -1,7 +1,7 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
-<t:base title="Gráficos de Altura">
+<t:base title="Gráfico de Altura">
     <jsp:attribute name="js">
         <script>
             $(document).ready(function() {

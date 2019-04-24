@@ -1,7 +1,7 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
-<t:base title="Gráficos de Tipo Sanguíneo">
+<t:base title="Gráfico de Tipo Sanguíneo">
     <jsp:attribute name="js">
         <script>
             $(document).ready(function() {
