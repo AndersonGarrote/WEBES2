@@ -5,7 +5,7 @@ html, body {
 }
 
 body {
-    background: linear-gradient(90deg, #3D85C6 50%, #FFFFFF 50%);
+    background: linear-gradient(90deg, #222222 50%, #FFFFFF 50%);
 }
 
 .container {
@@ -18,7 +18,7 @@ body {
 .sidebar {
     flex-shrink: 0;
     padding: 2.5em 1.5em;
-    background-color: #3D85C6;
+    background-color: #333333;
     color: #FFFFFF;
 }
 
@@ -58,21 +58,18 @@ body {
 main {
     flex-grow: 1;
     min-height: 100vh;
-    background-color: #FFE599;
+    background-color: #F0F0F0;
 }
 
 main>h1 {
     margin: 0;
     padding: 0.75em 0.5em;
-    background-color: #8E7CC3;
+    color: #FFFFFF;
+    background-color: #444444;
 }
 
 main .content {
     padding: 0.75em 0.5em;
-}
-
-footer {
-    background-color: #8E7CC3;
 }
 
 table {

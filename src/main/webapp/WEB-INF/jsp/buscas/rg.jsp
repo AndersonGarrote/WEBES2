@@ -5,9 +5,15 @@
 <t:base title="Busca por RG">
     <form id="form-rg" type="get" action="" autocomplete="on">
         <div class="input-group mb-3">
-            <div class="input-group-prepend"><label class="input-group-text" id="rg-label" for="rg">RG: </label></div>
-            <input class="form-control" aria-label="RG" aria-describedby="rg-label" type="text" id="rg" name="rg" autofocus="" placeholder="00.000.000-0" value="${param.rg}">
-            <input class="btn btn-outline-primary" type="button" type="submit" value="Buscar">
+            <div class="input-group-prepend">
+                <label class="input-group-text" id="rg-label" for="rg">RG:</label>
+            </div>
+            <input class="form-control" aria-label="RG" aria-describedby="rg-label" type="text" id="rg" name="rg" autofocus="" placeholder="00.000.000-0" data-mask="00.000.000-0" value="${param.rg}">
+            <div class="input-group-append">
+                <button class="btn btn-dark">
+                    <span class="oi oi-magnifying-glass" title="Buscar" aria-hidden="true"></span>
+                </button>
+            </div>
         </div>
     </form>
     <c:choose>
@@ -18,5 +24,4 @@
 
         </c:otherwise>
     </c:choose>
-
 </t:base>

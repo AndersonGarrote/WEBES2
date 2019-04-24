@@ -5,9 +5,15 @@
 <t:base title="Busca por CPF">
     <form id="form-cpf" type="get" action="" autocomplete="on">
         <div class="input-group mb-3">
-            <div class="input-group-prepend"><label class="input-group-text" id="cpf-label" for="cpf">CPF: </label></div>
-            <input class="form-control" aria-label="CPF" aria-describedby="cpf-label" type="text" id="cpf" name="cpf" autofocus="" placeholder="000.000.000-00" value="${param.cpf}">
-            <input class="btn btn-outline-primary" type="button" type="submit" value="Buscar">
+            <div class="input-group-prepend">
+                <label class="input-group-text" id="cpf-label" for="cpf">CPF:</label>
+            </div>
+            <input class="form-control" aria-label="CPF" aria-describedby="cpf-label" type="text" id="cpf" name="cpf" autofocus="" placeholder="000.000.000-00" data-mask="000.000.000-00" value="${param.cpf}">
+            <div class="input-group-append">
+                <button class="btn btn-dark">
+                    <span class="oi oi-magnifying-glass" title="Buscar" aria-hidden="true"></span>
+                </button>
+            </div>
         </div>
     </form>
     <c:choose>

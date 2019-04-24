@@ -33,9 +33,12 @@
 
                     });
 
-                    var layout = { barmode: "overlay" };
+                    var layout = {
+                        title: "Gráfico de altura",
+                        barmode: "overlay"
+                    };
 
-                    Plotly.newPlot("myDiv", data, layout);
+                    Plotly.newPlot("grafico", data, layout, { responsive: true });
 
                 });
 
@@ -45,7 +48,7 @@
     <jsp:body>
         <form action="">
             <label for="estado">Estado</label>
-            <select name="estado" id="estado">
+            <select class="form-control" name="estado" id="estado">
                 <option value="XX">Todos</option>
                 <option value="AC">Acre</option>
                 <option value="AL">Alagoas</option>
@@ -75,10 +78,12 @@
                 <option value="SE">Sergipe</option>
                 <option value="TO">Tocantins</option>
             </select>
-            <label for="sexo">Separar por sexo</label>
-            <input type="checkbox" name="sexo" id="sexo">
-            <input type="submit" value="Gerar gráfico" id="submit">
+            <div class="form-check my-2">
+                <input class="form-check-input" type="checkbox" name="sexo" id="sexo">
+                <label for="sexo" class="form-check-label">Separar por sexo</label>
+            </div>
+            <input class="btn btn-dark my-2" type="submit" value="Gerar gráfico" id="submit">
         </form>
-        <div id="myDiv"></div>
+        <div id="grafico"></div>
     </jsp:body>
 </t:base>

@@ -5,9 +5,15 @@
 <t:base title="Busca por E-mail">
     <form id="form-email" type="get" action="" autocomplete="on">
         <div class="input-group mb-3">
-            <div class="input-group-prepend"><label class="input-group-text" id="email-label" for="email">E-mail: </label></div>
+            <div class="input-group-prepend">
+                <label class="input-group-text" id="email-label" for="email">E-mail:</label>
+            </div>
             <input class="form-control" aria-label="E-mail" aria-describedby="email-label" type="email" id="email" name="email" autofocus="" placeholder="exemplo@dominio.com" value="${param.email}">
-            <input class="btn btn-outline-primary" type="button" type="submit" value="Buscar">
+            <div class="input-group-append">
+                <button class="btn btn-dark">
+                    <span class="oi oi-magnifying-glass" title="Buscar" aria-hidden="true"></span>
+                </button>
+            </div>
         </div>
     </form>
     <c:choose>

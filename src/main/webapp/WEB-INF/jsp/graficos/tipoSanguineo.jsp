@@ -9,7 +9,7 @@
                 $("#submit").click(function(e) {
                     e.preventDefault();
 
-                    var labels = ['A+', 'A-', 'B+', 'B-', 'O+', 'O-'];
+                    var labels = ['A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB-', 'AB+'];
 
                     var values = [];
 

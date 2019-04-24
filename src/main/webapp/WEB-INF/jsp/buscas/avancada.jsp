@@ -33,7 +33,7 @@
             <input class="form-control" id="cidade" type="text" name="cidade" value="${param.cidade}">
             <label for="estado">Estado</label>
             <input class="form-control" id="estado" type="text" name="estado" value="${param.estado}">
-            <input class="btn btn-primary my-2" type="submit" value="Buscar">
+            <input class="btn btn-dark my-2" type="submit" value="Buscar">
         </form>
         <c:choose>
             <c:when test="${pessoas != null}">

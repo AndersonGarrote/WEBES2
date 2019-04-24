@@ -75,9 +75,11 @@
                 <option value="SE">Sergipe</option>
                 <option value="TO">Tocantins</option>
             </select>
-            <label for="sexo">Separar por sexo</label>
-            <input type="checkbox" name="sexo" id="sexo">
-            <input type="submit" value="Gerar gráfico" id="submit">
+            <div class="form-check my-2">
+                <input class="form-check-input" type="checkbox" name="sexo" id="sexo">
+                <label for="sexo" class="form-check-label">Separar por sexo</label>
+            </div>
+            <input class="btn btn-dark my-2" type="submit" value="Gerar gráfico" id="submit">
         </form>
         <div id="myDiv"></div>
     </jsp:body>
