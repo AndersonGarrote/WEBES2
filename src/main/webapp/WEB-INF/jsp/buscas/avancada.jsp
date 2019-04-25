@@ -19,6 +19,13 @@
                 .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
                 .forEach(tr => tbody.appendChild(tr) );
             })));
+
+            $(document).ready(function() {
+                $('.page-item').click(function() {
+                    $('.page-item').removeClass('active');
+                    $(this).addClass("active");
+                });
+            });
         </script>
     </jsp:attribute>
     <jsp:body>

@@ -9,8 +9,8 @@
       <p class="card-text">Busque por um cadastro utilizando suas informações</p>
       <a href="/buscas/rg" class="btn btn-outline-dark">Busca por RG</a>
       <a href="/buscas/cpf" class="btn btn-outline-dark">Busca por CPF</a>
-      <a href="/buscas/email" class="btn btn-outline-dark">Busca por E-Mail</a>
-      <a href="/buscas/avancada" class="btn btn-outline-dark">Busca Avançada</a>
+      <a href="/buscas/email" class="btn btn-outline-dark">Busca por E-mail</a>
+      <a href="/buscas/avancada" class="btn btn-outline-dark">Busca avançada</a>
     </div>
   </div>
 
@@ -21,7 +21,7 @@
       <a href="/graficos/altura" class="btn btn-outline-dark">Altura</a>
       <a href="/graficos/peso" class="btn btn-outline-dark">Peso</a>
       <a href="/graficos/sexo" class="btn btn-outline-dark">Sexo</a>
-      <a href="/graficos/tipo-sanguineo" class="btn btn-outline-dark">Tipo Sanguíneo</a>
+      <a href="/graficos/tipo-sanguineo" class="btn btn-outline-dark">Tipo sanguíneo</a>
     </div>
   </div>
 
