@@ -10,6 +10,8 @@ Basta rodar o comando abaixo na pasta raíz do projeto:
 ./mvnw spring-boot:run
 ```
 
+Depois de iniciado o servidor estará rodando na porta 8080.
+
 Obs: a primeira vez pode demorar alguns minutos.
 
 # Como desligar o servidor
