@@ -18,11 +18,16 @@
     </form>
     <c:choose>
         <c:when test="${pessoa != null}">
-            <t:ficha></t:ficha>
+            <c:choose>
+                <c:when test="${pessoa.isPresent()}">
+                    <t:ficha pessoa="${pessoa.get()}"></t:ficha>
+                </c:when>
+                <c:otherwise>
+                    O CPF fornecido não está cadastrado
+                </c:otherwise>
+            </c:choose>
         </c:when>
         <c:otherwise>
-
         </c:otherwise>
     </c:choose>
-
 </t:base>

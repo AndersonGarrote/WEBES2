@@ -1,4 +1,5 @@
 <%@ tag description="Ficha component" pageEncoding="UTF-8" %>
+<%@ attribute name="pessoa" required="true" type="grupo3.cpf.Pessoa" %>
 <div class="ficha">
   <table class="table text-justify">
     <tbody>

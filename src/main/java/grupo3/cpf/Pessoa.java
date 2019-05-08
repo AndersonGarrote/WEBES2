@@ -1,20 +1,49 @@
 package grupo3.cpf;
 
+import java.time.LocalDate;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Pessoa {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String nome;
+    @Column(unique=true)
     private String rg;
+    @Column(unique=true)
     private String cpf;
+    @Column(unique=true)
     private String email;
     private String nomeDaMae;
     private String nomeDoPai;
-    private String dataDeNascimento;
+    private LocalDate dataDeNascimento;
     private String cidade;
     private String estado;
     private int peso;
     private String sexo;
     private int altura;
     private String tipoSanguineo;
+
+    /**
+     * @return the id
+     */
+    public Long getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     /**
      * @return the nome
@@ -187,15 +216,23 @@ public class Pessoa {
     /**
      * @return the dataDeNascimento
      */
-    public String getDataDeNascimento() {
+    public LocalDate getDataDeNascimento() {
         return dataDeNascimento;
     }
 
     /**
      * @param dataDeNascimento the dataDeNascimento to set
      */
-    public void setDataDeNascimento(String dataDeNascimento) {
+    public void setDataDeNascimento(LocalDate dataDeNascimento) {
         this.dataDeNascimento = dataDeNascimento;
+    }
+
+    @Override
+    public String toString() {
+        return "Pessoa [altura=" + altura + ", cidade=" + cidade + ", cpf=" + cpf + ", dataDeNascimento="
+                + dataDeNascimento + ", email=" + email + ", estado=" + estado + ", nome=" + nome + ", nomeDaMae="
+                + nomeDaMae + ", nomeDoPai=" + nomeDoPai + ", peso=" + peso + ", rg=" + rg + ", sexo=" + sexo
+                + ", tipoSanguineo=" + tipoSanguineo + "]";
     }
 
 }

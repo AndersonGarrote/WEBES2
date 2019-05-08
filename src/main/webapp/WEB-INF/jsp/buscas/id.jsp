@@ -4,12 +4,11 @@
 
 <t:base title="Visualizar cadastro">
     <c:choose>
-        <c:when test="${pessoa != null}">
-            <t:ficha></t:ficha>
+        <c:when test="${pessoa.isPresent()}">
+            <t:ficha pessoa="${pessoa.get()}"></t:ficha>
         </c:when>
         <c:otherwise>
-            <p>Cadastro não encontrado</p>
+            O ID fornecido não está cadastrado
         </c:otherwise>
     </c:choose>
-
 </t:base>

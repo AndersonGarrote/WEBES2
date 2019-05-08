@@ -1,9 +1,9 @@
 package grupo3.cpf;
 
-import java.util.ArrayList;
-
 import javax.annotation.PostConstruct;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,35 +12,38 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class BuscaController {
 
-    private Pessoa pessoa = null;
+    @Autowired
+    private PessoaRepository repository;
 
     @PostConstruct
     public void initialize() {
-        pessoa = new Pessoa();
-        pessoa.setNome("Carlos Almeida de Souza");
-        pessoa.setRg("15.161.171-1");
-        pessoa.setCpf("121.131.141-11");
-        pessoa.setEmail("c.almeida@email.com");
-        pessoa.setNomeDaMae("Clara Almeida");
-        pessoa.setNomeDoPai("Marcos de Souza");
-        pessoa.setDataDeNascimento("09/09/1999");
-        pessoa.setCidade("Curitiba");
-        pessoa.setEstado("PR");
-        pessoa.setSexo("Masculino");
-        pessoa.setPeso(70);
-        pessoa.setAltura(156);
-        pessoa.setTipoSanguineo("A+");
+        // Pessoa pessoa = new Pessoa();
+
+        // pessoa.setNome("Carlos Almeida de Souza");
+        // pessoa.setRg("15.161.171-1");
+        // pessoa.setCpf("121.131.141-11");
+        // pessoa.setEmail("c.almeida@email.com");
+        // pessoa.setNomeDaMae("Clara Almeida");
+        // pessoa.setNomeDoPai("Marcos de Souza");
+        // pessoa.setDataDeNascimento(LocalDate.of(1999, 11, 1));
+        // pessoa.setCidade("Curitiba");
+        // pessoa.setEstado("PR");
+        // pessoa.setSexo("Masculino");
+        // pessoa.setPeso(70);
+        // pessoa.setAltura(156);
+        // pessoa.setTipoSanguineo("A+");
+
+        // repository.save(pessoa);
     }
 
     @GetMapping("/buscas/id")
-    public ModelAndView buscaId(@RequestParam(required = false) String id) {
+    public ModelAndView buscaId(@RequestParam Long id) {
         ModelAndView modelAndView = new ModelAndView();
-
-        if (id != null && !"".equals(id)) {
-            modelAndView.addObject("pessoa", pessoa);
-        }
+        
+        modelAndView.addObject("pessoa", repository.findById(id));
 
         modelAndView.setViewName("buscas/id");
+
         return modelAndView;
     }
 
@@ -49,10 +52,11 @@ public class BuscaController {
         ModelAndView modelAndView = new ModelAndView();
 
         if (rg != null && !"".equals(rg)) {
-            modelAndView.addObject("pessoa", pessoa);
+            modelAndView.addObject("pessoa", repository.findByRg(rg));
         }
 
         modelAndView.setViewName("buscas/rg");
+
         return modelAndView;
     }
 
@@ -61,10 +65,11 @@ public class BuscaController {
         ModelAndView modelAndView = new ModelAndView();
 
         if (cpf != null && !"".equals(cpf)) {
-            modelAndView.addObject("pessoa", pessoa);
+            modelAndView.addObject("pessoa", repository.findByCpf(cpf));
         }
 
         modelAndView.setViewName("buscas/cpf");
+
         return modelAndView;
     }
 
@@ -73,10 +78,11 @@ public class BuscaController {
         ModelAndView modelAndView = new ModelAndView();
 
         if (email != null && !"".equals(email)) {
-            modelAndView.addObject("pessoa", pessoa);
+            modelAndView.addObject("pessoa", repository.findByEmail(email));
         }
 
         modelAndView.setViewName("buscas/email");
+
         return modelAndView;
     }
 
@@ -87,16 +93,32 @@ public class BuscaController {
 
         ModelAndView modelAndView = new ModelAndView();
 
-        if (nome != null && !"".equals(nome) || nomeDoPai != null && !"".equals(nomeDoPai)
-                || nomeDaMae != null && !"".equals(nomeDaMae) || cidade != null && !"".equals(cidade)
-                || estado != null && !"".equals(estado)) {
+        Specification<Pessoa> finalSpec = Specification.where(null);
 
-            ArrayList<Pessoa> pessoas = new ArrayList<Pessoa>();
-
-            modelAndView.addObject("pessoas", pessoas);
+        if(nome != null && !nome.isEmpty()) {
+            finalSpec = finalSpec.and(PessoaSpecs.nome(nome));
         }
 
+        if(nomeDoPai != null && !nomeDoPai.isEmpty()) {
+            finalSpec = finalSpec.and(PessoaSpecs.nomeDoPai(nomeDoPai));
+        }
+
+        if(nomeDaMae != null && !nomeDaMae.isEmpty()) {
+            finalSpec = finalSpec.and(PessoaSpecs.nomeDaMae(nomeDaMae));
+        }
+
+        if(estado != null && !estado.isEmpty()) {
+            finalSpec = finalSpec.and(PessoaSpecs.estado(estado));
+        }
+
+        if(cidade != null && !cidade.isEmpty()) {
+            finalSpec = finalSpec.and(PessoaSpecs.cidade(cidade));
+        }
+
+        modelAndView.addObject("pessoas", repository.findAll(finalSpec));
+
         modelAndView.setViewName("buscas/avancada");
+
         return modelAndView;
     }
 
