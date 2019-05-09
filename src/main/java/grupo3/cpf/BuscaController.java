@@ -15,27 +15,6 @@ public class BuscaController {
     @Autowired
     private PessoaRepository repository;
 
-    @PostConstruct
-    public void initialize() {
-        // Pessoa pessoa = new Pessoa();
-
-        // pessoa.setNome("Carlos Almeida de Souza");
-        // pessoa.setRg("15.161.171-1");
-        // pessoa.setCpf("121.131.141-11");
-        // pessoa.setEmail("c.almeida@email.com");
-        // pessoa.setNomeDaMae("Clara Almeida");
-        // pessoa.setNomeDoPai("Marcos de Souza");
-        // pessoa.setDataDeNascimento(LocalDate.of(1999, 11, 1));
-        // pessoa.setCidade("Curitiba");
-        // pessoa.setEstado("PR");
-        // pessoa.setSexo("Masculino");
-        // pessoa.setPeso(70);
-        // pessoa.setAltura(156);
-        // pessoa.setTipoSanguineo("A+");
-
-        // repository.save(pessoa);
-    }
-
     @GetMapping("/buscas/id")
     public ModelAndView buscaId(@RequestParam Long id) {
         ModelAndView modelAndView = new ModelAndView();
