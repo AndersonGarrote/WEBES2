@@ -1,12 +1,15 @@
 package grupo3.cpf;
 
+import java.text.ParseException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.swing.text.MaskFormatter;
 
 @Entity
 public class Pessoa {
@@ -15,11 +18,11 @@ public class Pessoa {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nome;
-    @Column(unique=true)
+    @Column(unique = true)
     private String rg;
-    @Column(unique=true)
+    @Column(unique = true)
     private String cpf;
-    @Column(unique=true)
+    @Column(unique = true)
     private String email;
     private String nomeDaMae;
     private String nomeDoPai;
@@ -78,6 +81,22 @@ public class Pessoa {
      */
     public String getCpf() {
         return cpf;
+    }
+
+    public String getCpf(boolean shouldFormat) {
+        if (shouldFormat) {
+            MaskFormatter mask;
+            try {
+                mask = new MaskFormatter("###.###.###-##");
+                mask.setValueContainsLiteralCharacters(false);
+                return mask.valueToString(cpf);
+            } catch (ParseException e) {
+                e.printStackTrace();
+                return getCpf();
+            }
+        } else {
+            return getCpf();
+        }
     }
 
     /**
@@ -218,6 +237,10 @@ public class Pessoa {
      */
     public LocalDate getDataDeNascimento() {
         return dataDeNascimento;
+    }
+
+    public String getDataDeNascimento(String format) {
+        return dataDeNascimento.format(DateTimeFormatter.ofPattern(format));
     }
 
     /**

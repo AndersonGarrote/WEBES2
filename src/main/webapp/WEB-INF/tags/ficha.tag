@@ -13,7 +13,7 @@
       </tr>
       <tr>
         <th scope="row">CPF:</th>
-        <td id="cpf">${pessoa.cpf}</td>
+        <td id="cpf">${pessoa.getCpf(true)}</td>
       </tr>
       <tr>
         <th scope="row">E-mail:</th>
@@ -30,7 +30,7 @@
       </tr>
       <tr>
         <th scope="row">Data de Nascimento:</th>
-        <td id="dataDeNascimento">${pessoa.dataDeNascimento}</td>
+        <td id="dataDeNascimento">${pessoa.getDataDeNascimento("dd/MM/yyyy")}</td>
       </tr>
 
       <tr>

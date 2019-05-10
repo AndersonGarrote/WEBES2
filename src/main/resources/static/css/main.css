@@ -72,10 +72,42 @@ main .content {
     padding: 0.75em 0.5em;
 }
 
-table {
-    text-align: center;
+.sort-label:hover, [data-toggle='collapse']:hover {
+    cursor: pointer;
 }
 
-.sortable th {
-    cursor: pointer;
+.sort-label, [data-toggle='collapse'] {
+    position: relative;
+}
+
+.sort-label:after {
+    content: '\f0dc';
+    position: absolute;
+    right: 8px;
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+
+[data-toggle='collapse']:after {
+    content: '\f068';
+    position: absolute;
+    right: 1em;
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+
+[data-toggle='collapse'][aria-expanded='true']:after {
+    content: '\f068';
+}
+
+[data-toggle='collapse'][aria-expanded='false']:after {
+    content: '\f067';
+}
+
+.sort-label[data-order='asc']:after {
+    content: '\f0de';
+}
+
+.sort-label[data-order='desc']:after {
+    content: '\f0dd';
 }

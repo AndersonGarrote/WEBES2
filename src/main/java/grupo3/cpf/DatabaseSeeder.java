@@ -27,9 +27,6 @@ public class DatabaseSeeder {
     public void seed(ContextRefreshedEvent event) {
 
         ArrayList<Pessoa> pessoas = new ArrayList<Pessoa>();
-
-        String tipoSanguineo[] = {"A", "B", "AB", "O"};
-        String fatorRh[] = {"-", "+"};
         
         for(int i = 0; i < 100; i++) {
             Pessoa pessoa = new Pessoa();
@@ -43,9 +40,9 @@ public class DatabaseSeeder {
             pessoa.setEstado(faker.address().state());
             pessoa.setPeso(faker.number().numberBetween(30, 200));
             pessoa.setDataDeNascimento(faker.date().birthday().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-            pessoa.setSexo(faker.demographic().sex());
+            pessoa.setSexo(faker.options().option("Masculino", "Feminino"));
             pessoa.setEmail(faker.internet().emailAddress());
-            pessoa.setTipoSanguineo(tipoSanguineo[faker.random().nextInt(0, 3)] + fatorRh[faker.random().nextInt(0, 1)]);
+            pessoa.setTipoSanguineo(faker.options().option("A", "B", "AB", "O") + faker.options().option("+", "-"));
             pessoas.add(pessoa);
         }
 

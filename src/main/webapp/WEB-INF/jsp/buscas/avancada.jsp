@@ -5,64 +5,87 @@
 <t:base title="Busca avançada">
     <jsp:attribute name="js">
         <script>
-            const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
+            var urlParams = new URLSearchParams(window.location.search)
 
-            const comparer = (idx, asc) => (a, b) => ((v1, v2) =>
-                v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)
-                )(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
+            if(urlParams.toString() === '') {
+                document.getElementById('form-busca').classList.add('show');
+            }
 
-            // do the work...
-            document.querySelectorAll('th').forEach(th => th.addEventListener('click', (() => {
-            const table = th.closest('table');
-            const tbody = table.querySelector('tbody');
-            Array.from(tbody.querySelectorAll('tr'))
-                .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
-                .forEach(tr => tbody.appendChild(tr) );
-            })));
+            const sort = urlParams.get('sort')
+            const order = urlParams.get('order')
 
-            $(document).ready(function() {
-                $('.page-item').click(function() {
-                    $('.page-item').removeClass('active');
-                    $(this).addClass("active");
-                });
-            });
+            var labels = document.getElementsByClassName('sort-label')
+
+            for (let label of labels) {
+
+                let name = label.dataset.name
+
+                if (name == sort) {
+                    label.setAttribute('data-order', order);
+                }
+
+                label.onclick = function (event) {
+
+
+                    if (sort == name && order == null || order == 'asc') {
+                        urlParams.set('order', 'desc')
+                    } else {
+                        urlParams.set('order', 'asc')
+                    }
+
+                    urlParams.set('sort', name)
+
+                    window.location.search = urlParams.toString()
+                }
+
+            }
+
+            urlParams.set('sort', 'cidade')
         </script>
     </jsp:attribute>
     <jsp:body>
-        <form action="" method="get">
-            <label for="nome">Nome</label>
-            <input class="form-control" id="nome" type="text" name="nome" value="${param.nome}">
-            <label for="nome_do_pai">Nome do pai</label>
-            <input class="form-control" id="nome_do_pai" type="text" name="nomeDoPai" value="${param.nomeDoPai}">
-            <label for="nome_da_mae">Nome da mãe</label>
-            <input class="form-control" id="nome_da_mae" type="text" name="nomeDaMae" value="${param.nomeDaMae}">
-            <label for="cidade">Cidade</label>
-            <input class="form-control" id="cidade" type="text" name="cidade" value="${param.cidade}">
-            <label for="estado">Estado</label>
-            <input class="form-control" id="estado" type="text" name="estado" value="${param.estado}">
-            <button class="btn btn-dark my-2">
-                <span class="oi oi-magnifying-glass" title="Buscar" aria-hidden="true"></span> Buscar
-            </button>
-        </form>
+        <div class="card my-2">
+            <div class="card-header" data-toggle="collapse" href="#form-busca">
+                Formulário de busca
+            </div>
+            <div class="card-body collapse" id="form-busca">
+                <form action="" method="get">
+                    <label for="nome">Nome</label>
+                    <input class="form-control" id="nome" type="text" name="nome" value="${param.nome}">
+                    <label for="nome_do_pai">Nome do pai</label>
+                    <input class="form-control" id="nome_do_pai" type="text" name="nomeDoPai" value="${param.nomeDoPai}">
+                    <label for="nome_da_mae">Nome da mãe</label>
+                    <input class="form-control" id="nome_da_mae" type="text" name="nomeDaMae" value="${param.nomeDaMae}">
+                    <label for="cidade">Cidade</label>
+                    <input class="form-control" id="cidade" type="text" name="cidade" value="${param.cidade}">
+                    <label for="estado">Estado</label>
+                    <input class="form-control" id="estado" type="text" name="estado" value="${param.estado}">
+                    <button class="btn btn-dark my-2">
+                        <i class="fas fa-search" title="Buscar" aria-hidden="true"></i> Buscar
+                    </button>
+                </form>
+            </div>
+        </div>
         <c:choose>
             <c:when test="${!pessoas.isEmpty()}">
+                <t:pagination start="${startPage}" end="${endPage}" url="${url}" page="${pessoas}"></t:pagination>
                 <table class="table table-bordered table-striped sortable">
                     <caption>Lista de cadastros</caption>
                     <thead>
                         <tr>
-                            <th>Nome</th>
-                            <th>CPF</th>
-                            <th>Data de nascimento</th>
-                            <th>Cidade</th>
-                            <th>Estado</th>
+                            <th class="sort-label" data-name="nome">Nome</th>
+                            <th class="sort-label" data-name="cpf">CPF</th>
+                            <th class="sort-label" data-name="dataDeNascimento">Data de nascimento</th>
+                            <th class="sort-label" data-name="cidade">Cidade</th>
+                            <th class="sort-label" data-name="estado">Estado</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
-                    <c:forEach items="${pessoas}" var="pessoa">
+                    <c:forEach items="${pessoas.getContent()}" var="pessoa">
                         <tr>
                             <td>${pessoa.nome}</td>
-                            <td>${pessoa.cpf}</td>
-                            <td>${pessoa.dataDeNascimento}</td>
+                            <td>${pessoa.getCpf(true)}</td>
+                            <td>${pessoa.getDataDeNascimento("dd/MM/yyyy")}</td>
                             <td>${pessoa.cidade}</td>
                             <td>${pessoa.estado}</td>
                             <td>
@@ -84,6 +107,7 @@
                 </nav>
             </c:when>
             <c:otherwise>
+                Nenhum cadastro encontrado
             </c:otherwise>
         </c:choose>
     </jsp:body>

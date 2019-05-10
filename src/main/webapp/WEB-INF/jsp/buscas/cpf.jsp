@@ -11,7 +11,7 @@
             <input class="form-control" aria-label="CPF" aria-describedby="cpf-label" type="text" id="cpf" name="cpf" autofocus="" placeholder="000.000.000-00" data-mask="000.000.000-00" value="${param.cpf}">
             <div class="input-group-append">
                 <button class="btn btn-dark">
-                    <span class="oi oi-magnifying-glass" title="Buscar" aria-hidden="true"></span> Buscar
+                    <i class="fas fa-search" title="Buscar" aria-hidden="true"></i> Buscar
                 </button>
             </div>
         </div>
