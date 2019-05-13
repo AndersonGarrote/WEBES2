@@ -50,16 +50,30 @@
             </div>
             <div class="card-body collapse" id="form-busca">
                 <form action="" method="get">
-                    <label for="nome">Nome</label>
-                    <input class="form-control" id="nome" type="text" name="nome" value="${param.nome}">
-                    <label for="nome_do_pai">Nome do pai</label>
-                    <input class="form-control" id="nome_do_pai" type="text" name="nomeDoPai" value="${param.nomeDoPai}">
-                    <label for="nome_da_mae">Nome da mãe</label>
-                    <input class="form-control" id="nome_da_mae" type="text" name="nomeDaMae" value="${param.nomeDaMae}">
-                    <label for="cidade">Cidade</label>
-                    <input class="form-control" id="cidade" type="text" name="cidade" value="${param.cidade}">
-                    <label for="estado">Estado</label>
-                    <input class="form-control" id="estado" type="text" name="estado" value="${param.estado}">
+                  <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="nome">Nome</label>
+                        <input class="form-control" id="nome" type="text" name="nome" value="${param.nome}">
+                      </div>
+                      <div class="form-group col-md-3">
+                        <label for="cidade">Cidade</label>
+                        <input class="form-control" id="cidade" type="text" name="cidade" value="${param.cidade}">
+                      </div>
+                      <div class="form-group col-md-3">
+                        <label for="estado">Estado</label>
+                        <input class="form-control" id="estado" type="text" name="estado" value="${param.estado}">
+                      </div>
+                  </div>
+                  <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="nome_do_pai">Nome do pai</label>
+                        <input class="form-control" id="nome_do_pai" type="text" name="nomeDoPai" value="${param.nomeDoPai}">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="nome_da_mae">Nome da mãe</label>
+                        <input class="form-control" id="nome_da_mae" type="text" name="nomeDaMae" value="${param.nomeDaMae}">
+                      </div>
+                    </div>
                     <button class="btn btn-dark my-2">
                         <i class="fas fa-search" title="Buscar" aria-hidden="true"></i> Buscar
                     </button>
