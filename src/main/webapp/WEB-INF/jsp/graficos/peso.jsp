@@ -20,22 +20,21 @@
 
                         values = [];
 
-                        for(i = 0; i < 100; i++) {
+                        for(i = 0; i < 10; i++) {
                             values.push(Math.floor(Math.random() * 100) + 30);
                         }
 
                         data.push({
-                            x: values,
-                            type: 'histogram',
+                            y: values,
+                            type: 'bar',
                             name: label,
-                            opacity: 0.75,
                         });
 
                     });
 
                     var layout = {
                         title: "Gráfico de peso",
-                        barmode: "overlay"
+                        barmode: "group"
                     };
 
                     Plotly.newPlot("grafico", data, layout, { responsive: true });
