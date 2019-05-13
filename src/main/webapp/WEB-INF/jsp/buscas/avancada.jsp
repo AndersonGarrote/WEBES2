@@ -96,15 +96,7 @@
                         </tr>
                     </c:forEach>
                 </table>
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Próxima</a></li>
-                    </ul>
-                </nav>
+                <t:pagination start="${startPage}" end="${endPage}" url="${url}" page="${pessoas}"></t:pagination>
             </c:when>
             <c:otherwise>
                 Nenhum cadastro encontrado
