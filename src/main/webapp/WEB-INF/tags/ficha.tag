@@ -1,7 +1,7 @@
 <%@ tag description="Ficha component" pageEncoding="UTF-8" %>
 <%@ attribute name="pessoa" required="true" type="grupo3.cpf.Pessoa" %>
 <div class="ficha">
-  <div class="flex-row d-flex">
+  <div class="flex-row d-flex py-2">
     <div class="col-5">
       <label class="font-weight-bold">Nome: </label>
       <label id="nome">${pessoa.nome}</label>
@@ -12,7 +12,7 @@
     </div>
   </div>
 
-  <div class="flex-row d-flex">
+  <div class="flex-row d-flex py-2">
     <div class="col-5">
       <label class="font-weight-bold">RG: </label>
       <label id="rg">${pessoa.rg}</label>
@@ -23,7 +23,7 @@
     </div>
   </div>
 
-  <div class="flex-row d-flex">
+  <div class="flex-row d-flex py-2">
     <div class="col-5">
       <label class="font-weight-bold">Nome da Mãe: </label>
       <label id="nomeDaMae">${pessoa.nomeDaMae}</label>
@@ -34,7 +34,7 @@
     </div>
   </div>
 
-  <div class="flex-row d-flex">
+  <div class="flex-row d-flex py-2">
     <div class="col-5">
       <label class="font-weight-bold">Estado: </label>
       <label id="estado">${pessoa.estado}</label>
@@ -45,7 +45,7 @@
     </div>
   </div>
 
-  <div class="flex-row d-flex">
+  <div class="flex-row d-flex py-2">
     <div class="col-5">
       <label class="font-weight-bold">Peso: </label>
       <label id="peso">${pessoa.peso} Kg</label>
@@ -56,7 +56,7 @@
     </div>
   </div>
 
-  <div class="flex-row d-flex">
+  <div class="flex-row d-flex py-2">
     <div class="col-5">
       <label class="font-weight-bold">Sexo: </label>
       <label id="sexo">${pessoa.sexo}</label>
@@ -67,7 +67,7 @@
     </div>
   </div>
 
-  <div class="flex-row d-flex">
+  <div class="flex-row d-flex py-2">
     <div class="col-12">
       <label class="font-weight-bold">Data de Nascimento: </label>
       <label id="dataDeNascimento">${pessoa.getDataDeNascimento("dd/MM/yyyy")}</label>
