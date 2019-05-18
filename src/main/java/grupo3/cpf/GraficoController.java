@@ -22,7 +22,33 @@ public class GraficoController {
     public ModelAndView graficoAltura(@RequestParam(required = false) String estado,
             @RequestParam(required=false, defaultValue = "false") Boolean sexo) {
         ModelAndView modelAndView = new ModelAndView();
-
+//         System.out.print(estado);
+//         //if(estado != null){
+//           //if(sexo){
+//             System.out.print("true\n");
+//             ArrayList<Long> colunasF = new ArrayList<Long>();
+//             ArrayList<Long> colunasM = new ArrayList<Long>();
+//
+//             for (int i=0; i<10 ; i++) {
+//               colunasF.add(i, repository.countByPesoBetween(100+i*10,100+((i+1)*10-1)));
+//               colunasM.add(i, repository.countByAlturaBetween(100+i*10,100+((i+1)*10-1)));
+//             }
+//             modelAndView.addObject("colunasF", colunasF);
+//             modelAndView.addObject("colunasM", colunasM);
+//
+//           //}else{
+//             System.out.print("false\n");
+//             ArrayList<Long> colunas = new ArrayList<Long>();
+//
+//             for (int i=0; i<10 ; i++) {
+//
+//               colunas.add(i, repository.countByAlturaBetween(100+i*10,100+((i+1)*10-1)));
+//             }
+//             modelAndView.addObject("colunas", colunas);
+// //          }
+//
+//
+// //        }
 
         modelAndView.setViewName("/graficos/altura");
 
@@ -60,10 +86,32 @@ public class GraficoController {
     }
 
     @GetMapping("/graficos/tipo-sanguineo")
-    public String graficotipoSanguineo() {
-        return "graficos/tipoSanguineo";
-    }
+    public ModelAndView graficotipoSanguineo(@RequestParam(required = false) String estado){
+        ModelAndView modelAndView = new ModelAndView();
 
+        if(estado != null){
+
+          String[] tipos = {"AB+","AB-","A+","A-","B+","B-","O+","O-"};
+          String[] labels = {"ABp","ABn","Ap","An","Bp","Bn","Op","On"};
+
+          if(estado.equals("XX")){
+            for ( int i = 0 ; i < 8 ; i++) {
+              modelAndView.addObject(labels[i], repository.countByTipoSanguineo(tipos[i]));
+            }
+            modelAndView.addObject("regiao", "Brasil");
+          }else{
+            for ( int i = 0 ; i < 8 ; i++) {
+              modelAndView.addObject(labels[i], repository.countByEstadoAndTipoSanguineo(nomeEstado.get(estado),tipos[i]));
+            }
+            modelAndView.addObject("regiao", nomeEstado.get(estado));
+          }
+
+        }
+
+        modelAndView.setViewName("/graficos/tipo-sanguineo");
+
+        return modelAndView;
+    }
 
     GraficoController(){
         nomeEstado = new HashMap<String,String>();
