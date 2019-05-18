@@ -1,46 +1,42 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
 <t:base title="Gráfico de Sexo">
+
     <jsp:attribute name="js">
         <script>
             $(document).ready(function() {
+              if(haDados){
+                if(masculino > 0 || feminino > 0){
+                  var labels = ['Masculino', 'Feminino'];
 
-                $("#submit").click(function(e) {
+                  var values = [masculino , feminino];
 
-                    e.preventDefault();
+                  var data = [{
+                      values: values,
+                      labels: labels,
+                      type: 'pie',
+                  }]
 
-                    var labels = ['Masculino', 'Feminino'];
+                  var layout = {
+                      title: "Gráfico de Sexo - " + regiao,
+                  };
 
-                    var values = [];
+                  Plotly.newPlot("grafico", data, layout, { responsive: true });
 
-                    labels.forEach(() => {
-                        values.push(Math.floor(Math.random() * 100) + 1);
-                    });
-
-                    var data = [{
-                        values: values,
-                        labels: labels,
-                        type: 'pie',
-                    }]
-
-                    var layout = {
-                        title: "Gráfico de sexo"
-                    };
-
-                    Plotly.newPlot("grafico", data, layout, { responsive: true });
-
-                    window.dispatchEvent(new Event('resize'));
-
-                });
-
+                  window.dispatchEvent(new Event('resize'));
+                }else{
+                  $("#grafico").html("Não foram encontrados dados com os parâmetros recebidos!");
+                }
+              }
             });
         </script>
     </jsp:attribute>
     <jsp:body>
-        <form action="">
+        <form id="form" action="" method="get">
             <label for="estado">Estado</label>
-            <select class="form-control" name="estado" id="estado">
+            <select class="form-control" name="estado" id="estado" value="${param.estado}">
                 <option value="XX">Todos</option>
                 <option value="AC">Acre</option>
                 <option value="AL">Alagoas</option>
@@ -73,5 +69,22 @@
             <input class="btn btn-dark my-2" type="submit" value="Gerar gráfico" id="submit">
         </form>
         <div id="grafico"></div>
+
+        <c:choose>
+            <c:when test="${masc != null}">
+              <script>
+                var masculino=${masc};
+                var feminino=${femi};
+                var regiao="${regiao}";
+                var haDados = true;
+              </script>
+            </c:when>
+            <c:otherwise>
+              <script>
+                var haDados = false;
+              </script>
+            </c:otherwise>
+        </c:choose>
+
     </jsp:body>
 </t:base>
