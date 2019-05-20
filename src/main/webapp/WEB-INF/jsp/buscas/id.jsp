@@ -8,7 +8,7 @@
             <t:ficha pessoa="${pessoa.get()}"></t:ficha>
         </c:when>
         <c:otherwise>
-            O ID fornecido não está cadastrado
+            <div class="alert alert-dark" role="alert">O ID fornecido não está cadastrado!</div>
         </c:otherwise>
     </c:choose>
 </t:base>
