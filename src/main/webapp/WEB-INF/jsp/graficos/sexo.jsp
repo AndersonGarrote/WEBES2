@@ -5,34 +5,41 @@
 <t:base title="Gráfico de Sexo">
 
     <jsp:attribute name="js">
-        <script>
+        <c:if test="${masc != null}">
+            <script>
+            var masculino=${masc};
+            var feminino=${femi};
+            var regiao="${regiao}";
+
             $(document).ready(function() {
-              if(haDados){
                 if(masculino > 0 || feminino > 0){
-                  var labels = ['Masculino', 'Feminino'];
+                    var labels = ['Masculino', 'Feminino'];
 
-                  var values = [masculino , feminino];
+                    var values = [masculino , feminino];
 
-                  var data = [{
-                      values: values,
-                      labels: labels,
-                      type: 'pie',
-                  }]
+                    var data = [{
+                        values: values,
+                        labels: labels,
+                        type: 'pie',
+                    }]
 
-                  var layout = {
-                      title: "Gráfico de Sexo - " + regiao,
-                  };
+                    var layout = {
+                        title: "Gráfico de Sexo - " + regiao,
+                    };
 
-                  Plotly.newPlot("grafico", data, layout, { responsive: true });
+                    Plotly.newPlot("grafico", data, layout, { responsive: true });
 
-                  window.dispatchEvent(new Event('resize'));
+                    window.dispatchEvent(new Event('resize'));
                 }else{
-                  $("#grafico").html("Não foram encontrados dados com os parâmetros recebidos!");
+                    $("#grafico").html("Não foram encontrados dados com os parâmetros recebidos!");
+                    $("#grafico").addClass("alert alert-dark");
                 }
-              }
+
             });
-        </script>
+            </script>
+        </c:if>
     </jsp:attribute>
+
     <jsp:body>
         <form id="form" action="" method="get">
             <label for="estado">Estado</label>
@@ -69,22 +76,6 @@
             <input class="btn btn-dark my-2" type="submit" value="Gerar gráfico" id="submit">
         </form>
         <div id="grafico"></div>
-
-        <c:choose>
-            <c:when test="${masc != null}">
-              <script>
-                var masculino=${masc};
-                var feminino=${femi};
-                var regiao="${regiao}";
-                var haDados = true;
-              </script>
-            </c:when>
-            <c:otherwise>
-              <script>
-                var haDados = false;
-              </script>
-            </c:otherwise>
-        </c:choose>
 
     </jsp:body>
 </t:base>
