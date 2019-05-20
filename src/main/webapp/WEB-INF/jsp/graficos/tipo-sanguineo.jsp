@@ -4,34 +4,38 @@
 
 <t:base title="Gráfico de Tipo Sanguíneo">
     <jsp:attribute name="js">
-        <script>
+        <c:if test="${regiao != null}">
+            <script>
+            var values=[${ABp},${ABn},${Ap},${An},${Bp},${Bn},${Op},${On}];
+            var regiao="${regiao}";
+
             $(document).ready(function() {
-              if(haDados){
                 if(! values.every(elem => elem == 0)){
 
-                  var labels = [ 'AB+', 'AB-', 'A+', 'A-', 'B+', 'B-', 'O+', 'O-'];
+                    var labels = [ 'AB+', 'AB-', 'A+', 'A-', 'B+', 'B-', 'O+', 'O-'];
 
-                  var data = [{
-                      values: values,
-                      labels: labels,
-                      type: 'pie',
-                  }]
+                    var data = [{
+                        values: values,
+                        labels: labels,
+                        type: 'pie',
+                    }]
 
-                  var layout = {
-                      title: "Gráfico de Tipo Sanguíneo - " + regiao,
-                  };
+                    var layout = {
+                        title: "Gráfico de Tipo Sanguíneo - " + regiao,
+                    };
 
-                  Plotly.newPlot('grafico', data, layout, {responsive: true});
+                    Plotly.newPlot('grafico', data, layout, {responsive: true});
 
-                  window.dispatchEvent(new Event('resize'));
+                    window.dispatchEvent(new Event('resize'));
                 }else{
-                  $("#grafico").html("Não foram encontrados dados com os parâmetros recebidos!");
+                    $("#grafico").html("Não foram encontrados dados com os parâmetros recebidos!");
+                    $("#grafico").addClass("alert alert-dark");
                 }
-              }
-
             });
-        </script>
+            </script>
+        </c:if>
     </jsp:attribute>
+
     <jsp:body>
         <form action="">
             <label for="estado">Estado</label>
@@ -68,21 +72,6 @@
             <input class="btn btn-dark my-2" type="submit" value="Gerar gráfico" id="submit">
         </form>
         <div id="grafico"></div>
-
-        <c:choose>
-            <c:when test="${regiao != null}">
-              <script>
-                var values=[${ABp},${ABn},${Ap},${An},${Bp},${Bn},${Op},${On}];
-                var regiao="${regiao}";
-                var haDados = true;
-              </script>
-            </c:when>
-            <c:otherwise>
-              <script>
-                var haDados = false;
-              </script>
-            </c:otherwise>
-        </c:choose>
 
     </jsp:body>
 </t:base>
