@@ -119,7 +119,7 @@
                 <t:pagination start="${startPage}" end="${endPage}" url="${url}" page="${pessoas}"></t:pagination>
             </c:when>
             <c:otherwise>
-                <div class="alert alert-dark" role="alert">Nenhum cadastro encontrado</div>
+                <div class="alert alert-dark" role="alert">Nenhum cadastro encontrado!</div>
             </c:otherwise>
         </c:choose>
     </jsp:body>
