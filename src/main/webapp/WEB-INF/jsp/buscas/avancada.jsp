@@ -5,42 +5,48 @@
 <t:base title="Busca avançada">
     <jsp:attribute name="js">
         <script>
-            var urlParams = new URLSearchParams(window.location.search)
+            $(document).ready(function() {
 
-            if(urlParams.toString() === '') {
-                document.getElementById('form-busca').classList.add('show');
-            }
+                var urlParams = new URLSearchParams(window.location.search)
 
-            const sort = urlParams.get('sort')
-            const order = urlParams.get('order')
-
-            var labels = document.getElementsByClassName('sort-label')
-
-            for (let label of labels) {
-
-                let name = label.dataset.name
-
-                if (name == sort) {
-                    label.setAttribute('data-order', order);
+                if(urlParams.toString() === '') {
+                    $('#form-busca').collapse('show')
+                } else {
+                    $('#form-busca').collapse('hide')
                 }
 
-                label.onclick = function (event) {
+                const sort = urlParams.get('sort')
+                const order = urlParams.get('order')
 
+                var labels = document.getElementsByClassName('sort-label')
 
-                    if (sort == name && order == null || order == 'asc') {
-                        urlParams.set('order', 'desc')
-                    } else {
-                        urlParams.set('order', 'asc')
+                for (let label of labels) {
+
+                    let name = label.dataset.name
+
+                    if (name == sort) {
+                        label.setAttribute('data-order', order);
                     }
 
-                    urlParams.set('sort', name)
+                    label.onclick = function (event) {
 
-                    window.location.search = urlParams.toString()
+
+                        if (sort == name && order == null || order == 'asc') {
+                            urlParams.set('order', 'desc')
+                        } else {
+                            urlParams.set('order', 'asc')
+                        }
+
+                        urlParams.set('sort', name)
+
+                        window.location.search = urlParams.toString()
+                    }
+
                 }
 
-            }
+                urlParams.set('sort', 'cidade')
 
-            urlParams.set('sort', 'cidade')
+            });
         </script>
     </jsp:attribute>
     <jsp:body>
@@ -96,15 +102,7 @@
                         </tr>
                     </c:forEach>
                 </table>
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Próxima</a></li>
-                    </ul>
-                </nav>
+                <t:pagination start="${startPage}" end="${endPage}" url="${url}" page="${pessoas}"></t:pagination>
             </c:when>
             <c:otherwise>
                 Nenhum cadastro encontrado

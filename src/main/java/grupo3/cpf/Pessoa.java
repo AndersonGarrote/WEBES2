@@ -4,7 +4,6 @@ import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,11 +17,11 @@ public class Pessoa {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nome;
-    @Column(unique = true)
+    // @Column(unique = true)
     private String rg;
-    @Column(unique = true)
+    // @Column(unique = true)
     private String cpf;
-    @Column(unique = true)
+    // @Column(unique = true)
     private String email;
     private String nomeDaMae;
     private String nomeDoPai;

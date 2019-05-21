@@ -26,27 +26,32 @@ public class DatabaseSeeder {
     @EventListener
     public void seed(ContextRefreshedEvent event) {
 
-        ArrayList<Pessoa> pessoas = new ArrayList<Pessoa>();
-        
-        for(int i = 0; i < 100; i++) {
-            Pessoa pessoa = new Pessoa();
-            pessoa.setNome(faker.name().fullName());
-            pessoa.setCpf(faker.number().digits(11));
-            pessoa.setRg(faker.number().digits(14));
-            pessoa.setNomeDaMae(faker.name().fullName());
-            pessoa.setNomeDoPai(faker.name().fullName());
-            pessoa.setAltura(faker.number().numberBetween(100, 200));
-            pessoa.setCidade(faker.address().city());
-            pessoa.setEstado(faker.address().state());
-            pessoa.setPeso(faker.number().numberBetween(30, 200));
-            pessoa.setDataDeNascimento(faker.date().birthday().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-            pessoa.setSexo(faker.options().option("Masculino", "Feminino"));
-            pessoa.setEmail(faker.internet().emailAddress());
-            pessoa.setTipoSanguineo(faker.options().option("A", "B", "AB", "O") + faker.options().option("+", "-"));
-            pessoas.add(pessoa);
-        }
+        for (int j = 0; j < 1; j++) {
 
-        pessoaRepository.saveAll(pessoas);
+            ArrayList<Pessoa> pessoas = new ArrayList<Pessoa>();
+
+            for (int i = 0; i < 1000; i++) {
+                Pessoa pessoa = new Pessoa();
+                pessoa.setNome(faker.name().fullName());
+                pessoa.setCpf(faker.number().digits(11));
+                pessoa.setRg(faker.number().digits(14));
+                pessoa.setNomeDaMae(faker.name().fullName());
+                pessoa.setNomeDoPai(faker.name().fullName());
+                pessoa.setAltura(faker.number().numberBetween(100, 200));
+                pessoa.setCidade(faker.address().city());
+                pessoa.setEstado(faker.address().state());
+                pessoa.setPeso(faker.number().numberBetween(30, 200));
+                pessoa.setDataDeNascimento(
+                        faker.date().birthday().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+                pessoa.setSexo(faker.options().option("Masculino", "Feminino"));
+                pessoa.setEmail(faker.internet().emailAddress());
+                pessoa.setTipoSanguineo(faker.options().option("A", "B", "AB", "O") + faker.options().option("+", "-"));
+                pessoas.add(pessoa);
+            }
+
+            pessoaRepository.saveAll(pessoas);
+
+        }
 
     }
 

@@ -1,84 +1,123 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
 <t:base title="Gráfico de Peso">
     <jsp:attribute name="js">
-        <script>
-            $(document).ready(function() {
+        <c:if test="${param.estado != null}">
+            <script>
 
-                $("#submit").click(function(e) {
+                const urlParams = new URLSearchParams(window.location.search)
 
-                    e.preventDefault();
+                let estado = document.querySelector("option[value='" + urlParams.get('estado') + "']");
 
-                    var sexo = $('#sexo').is(':checked');
+                if(estado) {
+                    estado.selected = true;
+                }
 
-                    var labels = sexo ? ['Masculino', 'Feminino'] : ['Peso'];
+                let sexo = document.querySelector("input[name=sexo]");
 
-                    var data = [];
+                sexo.checked = urlParams.get("sexo") === "on";
 
-                    labels.forEach((label) => {
+                let resultado = ${resultado}
+                let data = []
 
-                        values = [];
+                if(!sexo.checked) {
 
-                        for(i = 0; i < 100; i++) {
-                            values.push(Math.floor(Math.random() * 100) + 30);
+                    data = [
+                        {
+                            x: resultado.pesos,
+                            y: resultado.contagem,
+                            xbins: {
+                                size: 5,
+                                start: 30,
+                                end: 200
+                            },
+                            histfunc: "sum",
+                            type: 'histogram'
                         }
+                    ]
 
-                        data.push({
-                            x: values,
+                } else {
+
+                    data = [
+                        {
+                            x: resultado.Feminino.pesos,
+                            y: resultado.Feminino.contagem,
+                            xbins: {
+                                size: 5,
+                                start: 30,
+                                end: 200
+                            },
+                            histfunc: "sum",
                             type: 'histogram',
-                            name: label,
-                            opacity: 0.75,
-                        });
+                            name: 'Feminino',
+                            opacity: 0.75
+                        },
+                        {
+                            x: resultado.Masculino.pesos,
+                            y: resultado.Masculino.contagem,
+                            xbins: {
+                                size: 5,
+                                start: 30,
+                                end: 200
+                            },
+                            histfunc: "sum",
+                            type: 'histogram',
+                            name: 'Masculino',
+                            opacity: 0.75
+                        }
+                    ]
 
-                    });
+                }
 
-                    var layout = {
-                        title: "Gráfico de peso",
-                        barmode: "overlay"
-                    };
+                var layout = {
+                    title: "Gráfico de peso",
+                    xaxis: {
+                        tickangle: -45
+                    },
+                    barmode: "overlay"
+                }
 
-                    Plotly.newPlot("grafico", data, layout, { responsive: true });
+                Plotly.newPlot("grafico", data, layout, { responsive: true })
 
-                    window.dispatchEvent(new Event('resize'));
+                window.dispatchEvent(new Event('resize'))
 
-                });
-
-            });
-        </script>
+            </script>
+        </c:if>
     </jsp:attribute>
     <jsp:body>
         <form action="">
             <label for="estado">Estado</label>
             <select class="form-control" name="estado" id="estado">
-                <option value="XX">Todos</option>
-                <option value="AC">Acre</option>
-                <option value="AL">Alagoas</option>
-                <option value="AP">Amapá</option>
-                <option value="AM">Amazonas</option>
-                <option value="BA">Bahia</option>
-                <option value="CE">Ceará</option>
-                <option value="DF">Distrito Federal</option>
-                <option value="ES">Espírito Santo</option>
-                <option value="GO">Goiás</option>
-                <option value="MA">Maranhão</option>
-                <option value="MT">Mato Grosso</option>
-                <option value="MS">Mato Grosso do Sul</option>
-                <option value="MG">Minas Gerais</option>
-                <option value="PA">Pará</option>
-                <option value="PB">Paraíba</option>
-                <option value="PR">Paraná</option>
-                <option value="PE">Pernambuco</option>
-                <option value="PI">Piauí</option>
-                <option value="RJ">Rio de Janeiro</option>
-                <option value="RN">Rio Grande do Norte</option>
-                <option value="RS">Rio Grande do Sul</option>
-                <option value="RO">Rondônia</option>
-                <option value="RR">Roraima</option>
-                <option value="SC">Santa Catarina</option>
-                <option value="SP">São Paulo</option>
-                <option value="SE">Sergipe</option>
-                <option value="TO">Tocantins</option>
+                <option value="Todos">Todos</option>
+                <option value="Acre">Acre</option>
+                <option value="Alagoas">Alagoas</option>
+                <option value="Amapá">Amapá</option>
+                <option value="Amazonas">Amazonas</option>
+                <option value="Bahia">Bahia</option>
+                <option value="Ceará">Ceará</option>
+                <option value="Distrito Federal">Distrito Federal</option>
+                <option value="Espírito Santo">Espírito Santo</option>
+                <option value="Goiás">Goiás</option>
+                <option value="Maranhão">Maranhão</option>
+                <option value="Mato Grosso">Mato Grosso</option>
+                <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
+                <option value="Minas Gerais">Minas Gerais</option>
+                <option value="Pará">Pará</option>
+                <option value="Paraíba">Paraíba</option>
+                <option value="Paraná">Paraná</option>
+                <option value="Pernambuco">Pernambuco</option>
+                <option value="Piauí">Piauí</option>
+                <option value="Rio de Janeiro">Rio de Janeiro</option>
+                <option value="Rio Grande do Norte">Rio Grande do Norte</option>
+                <option value="Rio Grande do Sul">Rio Grande do Sul</option>
+                <option value="Rondônia">Rondônia</option>
+                <option value="Roraima">Roraima</option>
+                <option value="Santa Catarina">Santa Catarina</option>
+                <option value="São Paulo">São Paulo</option>
+                <option value="Sergipe">Sergipe</option>
+                <option value="Tocantins">Tocantins</option>
             </select>
             <div class="form-check my-2">
                 <input class="form-check-input" type="checkbox" name="sexo" id="sexo">

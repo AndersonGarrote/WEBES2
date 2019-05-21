@@ -41,7 +41,7 @@
         <form action="">
             <label for="estado">Estado</label>
             <select class="form-control" name="estado" id="estado">
-                <option value="XX">Todos</option>
+                <option value="">Todos</option>
                 <option value="AC">Acre</option>
                 <option value="AL">Alagoas</option>
                 <option value="AP">Amapá</option>
