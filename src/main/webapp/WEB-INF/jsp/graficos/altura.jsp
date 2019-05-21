@@ -16,22 +16,28 @@
 
                     var data = [];
 
-                    labels.forEach((label) => {
-
-                        values = [];
-
-                        for(i = 0; i < 10; i++) {
-                            values.push(Math.random() + 1);
-
-                        }
-
+                    //labels.forEach((label) => {
+                    if(sexo){
                         data.push({
-                            y: values,
+                            y: valuesF,
+                            x:[1.00,1.10,1.20,1.30,1.40,1.50,1.60,1.70,1.80,1.90,2.00],
                             type: 'bar',
-                            name: label,
+                            name: 'Masculino',
                         });
 
-                    });
+                        data.push({
+                            y: valuesM,
+                            type: 'bar',
+                            name: 'Feminino',
+                        });
+                    }else{
+                      data.push({
+                          y: values,
+                          type: 'bar',
+                          name: 'Feminino',
+                      });
+                    }
+                    //});
 
                     var layout = {
                         title: "Gráfico de altura",
@@ -48,7 +54,7 @@
         </script>
     </jsp:attribute>
     <jsp:body>
-        <form action="">
+        <form action="" type="get">
             <label for="estado">Estado</label>
             <select class="form-control" name="estado" id="estado">
                 <option value="XX">Todos</option>
@@ -86,6 +92,25 @@
             </div>
             <input class="btn btn-dark my-2" type="submit" value="Gerar gráfico" id="submit">
         </form>
+
+        <c:choose>
+          <c:when test="${colunas != null}">
+            <script>
+              var values=${colunas};
+            </script>
+          </c:when>
+          <c:when test="${colunasF != null}">
+            <script>
+              var valuesF=${colunasF};
+              var valuesM=${colunasM};
+            </script>
+          </c:when>
+          <c:otherwise>
+          </c:otherwise>
+        </c:choose>
+
         <div id="grafico"></div>
+
+
     </jsp:body>
 </t:base>
