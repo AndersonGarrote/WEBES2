@@ -24,6 +24,7 @@
 
                 if(!sexo.checked) {
 
+<<<<<<< HEAD
                     data = [
                         {
                             x: resultado.alturas.map(x => {
@@ -76,6 +77,25 @@
                     ]
 
                 }
+=======
+                        for(i = 0; i < 10; i++) {
+                            values.push(Math.random() + 1);
+
+                        }
+
+                        data.push({
+                            y: values,
+                            type: 'bar',
+                            name: label,
+                        });
+
+                    });
+
+                    var layout = {
+                        title: "Gráfico de altura",
+                        barmode: "group"
+                    };
+>>>>>>> 8445ef2912e238c3ffdf474bfbd1b1aaa50362ec
 
                 var layout = {
                     title: "Gráfico de altura",

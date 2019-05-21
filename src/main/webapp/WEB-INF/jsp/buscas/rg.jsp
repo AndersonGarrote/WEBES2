@@ -8,7 +8,7 @@
             <div class="input-group-prepend">
                 <label class="input-group-text" id="rg-label" for="rg">RG:</label>
             </div>
-            <input class="form-control" aria-label="RG" aria-describedby="rg-label" type="text" id="rg" name="rg" autofocus="" placeholder="00.000.000-0" data-mask="00.000.000-0" value="${param.rg}">
+            <input class="form-control" aria-label="RG" aria-describedby="rg-label" type="text" id="rg" name="rg" autofocus="" placeholder="00.000.000-0" value="${param.rg}">
             <div class="input-group-append">
                 <button class="btn btn-dark">
                     <i class="fas fa-search" title="Buscar" aria-hidden="true"></i> Buscar
@@ -23,7 +23,7 @@
                     <t:ficha pessoa="${pessoa.get()}"></t:ficha>
                 </c:when>
                 <c:otherwise>
-                    O RG fornecido não está cadastrado
+                    <div class="alert alert-dark" role="alert">O RG fornecido não está cadastrado</div>
                 </c:otherwise>
             </c:choose>
         </c:when>

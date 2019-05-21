@@ -2,20 +2,17 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
-<t:base title="Gráfico de Sexo">
-
+<t:base title="Gráfico de Tipo Sanguíneo">
     <jsp:attribute name="js">
-        <c:if test="${masc != null}">
+        <c:if test="${regiao != null}">
             <script>
-            var masculino=${masc};
-            var feminino=${femi};
+            var values=[${ABp},${ABn},${Ap},${An},${Bp},${Bn},${Op},${On}];
             var regiao="${regiao}";
 
             $(document).ready(function() {
-                if(masculino > 0 || feminino > 0){
-                    var labels = ['Masculino', 'Feminino'];
+                if(! values.every(elem => elem == 0)){
 
-                    var values = [masculino , feminino];
+                    var labels = [ 'AB+', 'AB-', 'A+', 'A-', 'B+', 'B-', 'O+', 'O-'];
 
                     var data = [{
                         values: values,
@@ -24,32 +21,26 @@
                     }]
 
                     var layout = {
-                        title: "Gráfico de Sexo - " + regiao,
+                        title: "Gráfico de Tipo Sanguíneo - " + regiao,
                     };
 
-                    Plotly.newPlot("grafico", data, layout, { responsive: true });
+                    Plotly.newPlot('grafico', data, layout, {responsive: true});
 
                     window.dispatchEvent(new Event('resize'));
                 }else{
                     $("#grafico").html("Não foram encontrados dados com os parâmetros recebidos!");
                     $("#grafico").addClass("alert alert-dark");
                 }
-
             });
             </script>
         </c:if>
     </jsp:attribute>
 
     <jsp:body>
-        <form id="form" action="" method="get">
+        <form action="">
             <label for="estado">Estado</label>
-<<<<<<< HEAD
             <select class="form-control" name="estado" id="estado">
-                <option value="">Todos</option>
-=======
-            <select class="form-control" name="estado" id="estado" value="${param.estado}">
                 <option value="XX">Todos</option>
->>>>>>> 8445ef2912e238c3ffdf474bfbd1b1aaa50362ec
                 <option value="AC">Acre</option>
                 <option value="AL">Alagoas</option>
                 <option value="AP">Amapá</option>
