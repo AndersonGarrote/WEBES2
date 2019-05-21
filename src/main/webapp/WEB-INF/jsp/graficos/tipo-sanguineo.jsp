@@ -6,6 +6,15 @@
     <jsp:attribute name="js">
         <c:if test="${regiao != null}">
             <script>
+
+            const urlParams = new URLSearchParams(window.location.search)
+
+            let estado = document.querySelector("option[value='" + urlParams.get('estado') + "']");
+
+            if(estado) {
+                estado.selected = true;
+            }
+            
             var values=[${ABp},${ABn},${Ap},${An},${Bp},${Bn},${Op},${On}];
             var regiao="${regiao}";
 

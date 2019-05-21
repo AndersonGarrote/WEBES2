@@ -7,6 +7,15 @@
     <jsp:attribute name="js">
         <c:if test="${masc != null}">
             <script>
+
+            const urlParams = new URLSearchParams(window.location.search)
+
+            let estado = document.querySelector("option[value='" + urlParams.get('estado') + "']");
+
+            if(estado) {
+                estado.selected = true;
+            }
+            
             var masculino=${masc};
             var feminino=${femi};
             var regiao="${regiao}";

@@ -24,7 +24,6 @@
 
                 if(!sexo.checked) {
 
-<<<<<<< HEAD
                     data = [
                         {
                             x: resultado.pesos,
@@ -71,24 +70,6 @@
                     ]
 
                 }
-=======
-                        for(i = 0; i < 10; i++) {
-                            values.push(Math.floor(Math.random() * 100) + 30);
-                        }
-
-                        data.push({
-                            y: values,
-                            type: 'bar',
-                            name: label,
-                        });
-
-                    });
-
-                    var layout = {
-                        title: "Gráfico de peso",
-                        barmode: "group"
-                    };
->>>>>>> 8445ef2912e238c3ffdf474bfbd1b1aaa50362ec
 
                 var layout = {
                     title: "Gráfico de peso",

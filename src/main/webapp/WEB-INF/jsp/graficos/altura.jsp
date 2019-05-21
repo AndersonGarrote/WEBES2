@@ -19,13 +19,11 @@
 
                 sexo.checked = urlParams.get("sexo") === "on";
 
-<<<<<<< HEAD
                 let resultado = ${resultado}
                 let data = []
 
                 if(!sexo.checked) {
 
-<<<<<<< HEAD
                     data = [
                         {
                             x: resultado.alturas.map(x => {
@@ -78,42 +76,6 @@
                     ]
 
                 }
-=======
-                        for(i = 0; i < 10; i++) {
-                            values.push(Math.random() + 1);
-
-                        }
-
-=======
-                    //labels.forEach((label) => {
-                    if(sexo){
->>>>>>> 835729d2b69cbc9c2b373a4213727813e6e7f346
-                        data.push({
-                            y: valuesF,
-                            x:[1.00,1.10,1.20,1.30,1.40,1.50,1.60,1.70,1.80,1.90,2.00],
-                            type: 'bar',
-                            name: 'Masculino',
-                        });
-
-                        data.push({
-                            y: valuesM,
-                            type: 'bar',
-                            name: 'Feminino',
-                        });
-                    }else{
-                      data.push({
-                          y: values,
-                          type: 'bar',
-                          name: 'Feminino',
-                      });
-                    }
-                    //});
-
-                    var layout = {
-                        title: "Gráfico de altura",
-                        barmode: "group"
-                    };
->>>>>>> 8445ef2912e238c3ffdf474bfbd1b1aaa50362ec
 
                 var layout = {
                     title: "Gráfico de altura",
