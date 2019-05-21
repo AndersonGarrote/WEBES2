@@ -8,10 +8,8 @@
 <head>
     <meta charset="UTF-8">
     <title>${title}</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="/font-awesome/css/all.css"
-        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/font-awesome/css/all.css">
     <link rel="stylesheet" href="/css/main.css">
 </head>
 
@@ -49,14 +47,9 @@
             </div>
         </main>
     </div>
-    <script src="/js/jquery-3.4.0.min.js"
-        crossorigin="anonymous"></script>
-    <script src="/js/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+    <script src="/js/jquery-3.4.0.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
     <script src="/js/plotly-latest.min.js"></script>
     <script src="/js/plotly-locale-pt-br-latest.js"></script>
     <script>Plotly.setPlotConfig({locale: 'pt-BR'})</script>
