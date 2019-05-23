@@ -9,7 +9,9 @@
 
                 const urlParams = new URLSearchParams(window.location.search)
 
-                let estado = document.querySelector("option[value='" + urlParams.get('estado') + "']");
+                const getEstado = urlParams.get('estado')
+
+                let estado = document.querySelector("option[value='" + getEstado + "']");
 
                 if(estado) {
                     estado.selected = true;
@@ -72,9 +74,17 @@
                 }
 
                 var layout = {
-                    title: "Gráfico de peso",
+                    title: "Gráfico de peso - " + (getEstado == "Todos" ? "Brasil" : getEstado),
                     xaxis: {
+                        title: {
+                            text: 'Peso (quilogramas)'
+                        },
                         tickangle: -45
+                    },
+                    yaxis: {
+                        title: {
+                            text: 'Número de pessoas'
+                        },
                     },
                     barmode: "overlay"
                 }

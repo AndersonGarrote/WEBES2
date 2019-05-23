@@ -9,7 +9,9 @@
 
                 const urlParams = new URLSearchParams(window.location.search)
 
-                let estado = document.querySelector("option[value='" + urlParams.get('estado') + "']");
+                const getEstado = urlParams.get('estado');
+
+                let estado = document.querySelector("option[value='" + getEstado + "']");
 
                 if(estado) {
                     estado.selected = true;
@@ -78,10 +80,18 @@
                 }
 
                 var layout = {
-                    title: "Gráfico de altura",
+                    title: "Gráfico de altura - " + (getEstado == "Todos" ? "Brasil" : getEstado),
                     xaxis: {
+                        title: {
+                            text: 'Altura (metros)'
+                        },
                         tickangle: -45,
                         tickformat: '.2f'
+                    },
+                    yaxis: {
+                        title: {
+                            text: 'Número de pessoas'
+                        },
                     },
                     barmode: "overlay"
                 }
