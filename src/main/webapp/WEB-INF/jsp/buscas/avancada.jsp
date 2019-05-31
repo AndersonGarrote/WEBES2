@@ -44,7 +44,7 @@
 
                 }
 
-                urlParams.set('sort', 'cidade')
+                urlParams.set('sort', 'cidade');
 
             });
         </script>
@@ -55,7 +55,7 @@
                 Formulário de busca
             </div>
             <div class="card-body collapse" id="form-busca">
-                <form action="" method="get">
+                <form action="" method="get" id="form-busca-avancada">
                   <div class="form-row">
                       <div class="form-group col-md-6">
                         <label for="nome">Nome</label>
