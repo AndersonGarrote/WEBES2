@@ -28,7 +28,7 @@
                 let resultado = ${resultado}
                 let data = []
 
-                let binSize = 13;
+                let binSize = 12;
 
                 if(!sexo.checked) {
 
@@ -104,6 +104,9 @@
 
                 Plotly.newPlot("grafico", data, layout, { responsive: true })
 
+                let grafico = document.querySelector("#grafico");
+                grafico.scrollIntoView();
+
                 let binSizeText = document.querySelector("#binSizeText");
                 let binSizeSlider = document.querySelector("#binSizeSlider");
 
@@ -176,27 +179,22 @@
             </div>
         </div>
         <c:if test="${param.estado != null}">
-        <input type="number" id="binSizeText" min="1" max="25" step="1" value="13">
-        <input type="range" id="binSizeSlider" min="1" max="25" step="1" value=13>
+        <div class="card my-2">
+            <div class="card-body">
+                <label for="binSizeText">Tamanho do agrupamento (em centímetros):</label>
+                <div class="row">
+                    <div class="col-auto">
+                        <input type="number" id="binSizeText" min="1" max="25" step="1" value="12">
+                    </div>
+                    <div class="col">
+                        <input class="w-100" type="range" id="binSizeSlider" min="1" max="25" step="1" value="12">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card my-2">
+            <div id="grafico"></div>
+        </div>
         </c:if>
-        <c:choose>
-          <c:when test="${colunas != null}">
-            <script>
-              var values=${colunas};
-            </script>
-          </c:when>
-          <c:when test="${colunasF != null}">
-            <script>
-              var valuesF=${colunasF};
-              var valuesM=${colunasM};
-            </script>
-          </c:when>
-          <c:otherwise>
-          </c:otherwise>
-        </c:choose>
-
-        <div id="grafico"></div>
-
-
     </jsp:body>
 </t:base>

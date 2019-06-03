@@ -48,12 +48,12 @@
         </main>
     </div>
     <script src="/js/jquery-3.4.0.min.js"></script>
-    <script src="/js/popper.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/plotly-latest.min.js"></script>
-    <script src="/js/plotly-locale-pt-br-latest.js"></script>
+    <script src="/js/bootstrap/popper.min.js"></script>
+    <script src="/js/bootstrap/bootstrap.min.js"></script>
+    <script src="/js/plotly/plotly-latest.min.js"></script>
+    <script src="/js/plotly/plotly-locale-pt-br-latest.js"></script>
     <script>Plotly.setPlotConfig({locale: 'pt-BR'})</script>
-    <script src="/js/jquery.mask.min.js"></script>
+    <script src="/js/jquerymask/jquery.mask.min.js"></script>
     <jsp:invoke fragment="js"/>
 </body>
 
