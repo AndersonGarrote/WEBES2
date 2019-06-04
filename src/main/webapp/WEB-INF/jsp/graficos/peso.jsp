@@ -186,8 +186,14 @@
                     <div class="col-auto">
                         <input type="number" id="binSizeText" min="1" max="25" step="1" value="12">
                     </div>
+                    <div class="col-auto">
+                        1
+                    </div>
                     <div class="col">
-                        <input class="w-100" type="range" id="binSizeSlider" min="1" max="25" step="1" value="12">
+                        <input class="custom-range" type="range" id="binSizeSlider" min="1" max="25" step="1" value="12">
+                    </div>
+                    <div class="col-auto">
+                        25
                     </div>
                 </div>
             </div>
