@@ -26,6 +26,12 @@
                 sexo.checked = urlParams.get("sexo") === "on";
 
                 let resultado = ${resultado}
+
+                if(Object.keys(resultado).length === 0) {
+                    document.querySelector('#grafico').innerHTML = '<div class="alert alert-dark">Não foram encontrados dados com os parâmetros recebidos!</div>';
+                    throw new Error('404');
+                }
+
                 let data = []
 
                 let binSize = 13;
