@@ -1,4 +1,4 @@
-package grupo3.cpf;
+package grupo3.cpf.grafico;
 
 public class CountAlturasTransformer {
 

@@ -1,5 +1,5 @@
 <%@ tag description="Ficha component" pageEncoding="UTF-8" %>
-<%@ attribute name="pessoa" required="true" type="grupo3.cpf.Pessoa" %>
+<%@ attribute name="pessoa" required="true" type="grupo3.cpf.pessoa.Pessoa" %>
 <div class="ficha">
   <div class="flex-row d-flex py-2">
     <div class="col-5">

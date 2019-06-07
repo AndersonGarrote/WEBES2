@@ -1,4 +1,7 @@
-package grupo3.cpf;
+package grupo3.cpf.grafico;
+
+import grupo3.cpf.pessoa.Pessoa;
+import grupo3.cpf.pessoa.Pessoa_;
 
 import org.springframework.data.jpa.domain.Specification;
 
