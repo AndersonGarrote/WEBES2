@@ -111,3 +111,13 @@ main .content {
 .sort-label[data-order='desc']:after {
     content: '\f0dd';
 }
+/* 
+input[type=range]:before {
+    content: attr(min);
+    margin-right: 0.5em;
+}
+
+input[type=range]:after {
+    content: attr(max);
+    margin-left: 0.5em;
+} */

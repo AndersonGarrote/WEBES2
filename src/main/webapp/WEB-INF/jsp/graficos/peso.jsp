@@ -110,22 +110,60 @@
                 let binSizeText = document.querySelector("#binSizeText");
                 let binSizeSlider = document.querySelector("#binSizeSlider");
 
+                function updateBinSizeTextPosition() {
+                    if(binSizeText.value > 25) {
+                        binSizeText.value = 25;
+                        binSizeSlider.value = 25;
+                    }
+                    if(binSizeText.value < 1) {
+                        binSizeText.value = 1;
+                        binSizeSlider.value = 1;
+                    }
+                    let percent = binSizeSlider.value / binSizeSlider.max;
+                    binSizeText.style.marginLeft = 'calc(' + percent*100 +'% - ' + (percent + 0.25) * binSizeText.offsetWidth + 'px)';
+                }
+
                 binSizeSlider.oninput = function() {
+                    if(this.value > 25)
+                        this.value = 25;
+                    if(this.value < 1)
+                        this.value = 1;
                     binSizeText.value = this.value;
+                    updateBinSizeTextPosition();
                     updateBinSize(this.value);
                 }
 
+                let t;
+
                 binSizeText.oninput = function() {
-                    binSizeSlider.value = this.value;
+                    clearTimeout(t);
+                    binSizeSlider.value = binSizeText.value;
                     updateBinSize(this.value);
+                    t = setTimeout(updateBinSizeTextPosition, 1000);
+                }
+
+                binSizeText.onblur = function() {
+                    updateBinSizeTextPosition();
+                }
+
+                binSizeText.onkeypress = function(e) {
+                    if(e.keyCode == 13) {
+                        updateBinSizeTextPosition();
+                    }
                 }
 
                 function updateBinSize(binSize) {
+                    if(binSize > 25)
+                        binSize = 25;
+                    if(binSize < 1)
+                        binSize = 1;
                     data.forEach((dataset) => {
                         dataset.xbins.size = binSize;
                     })
                     Plotly.react("grafico", data, layout);
                 }
+
+                updateBinSizeTextPosition();
 
                 window.dispatchEvent(new Event('resize'))
 
@@ -182,19 +220,14 @@
         <div class="card my-2">
             <div class="card-body">
                 <label for="binSizeText">Tamanho do agrupamento (em quilogramas):</label>
+                <br>
+                <input type="number" id="binSizeText" min="1" max="25" step="1" value="13">
                 <div class="row">
-                    <div class="col-auto">
-                        <input type="number" id="binSizeText" min="1" max="25" step="1" value="12">
-                    </div>
-                    <div class="col-auto">
-                        1
-                    </div>
+                    <div class="col-auto">1</div>
                     <div class="col">
-                        <input class="custom-range" type="range" id="binSizeSlider" min="1" max="25" step="1" value="12">
+                        <input class="custom-range" type="range" id="binSizeSlider" min="1" max="25" step="1" value="13">
                     </div>
-                    <div class="col-auto">
-                        25
-                    </div>
+                    <div class="col-auto">25</div>
                 </div>
             </div>
         </div>

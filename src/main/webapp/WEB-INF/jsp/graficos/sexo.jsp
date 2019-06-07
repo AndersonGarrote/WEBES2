@@ -42,6 +42,7 @@
 
                     Plotly.newPlot("grafico", data, layout, { responsive: true });
                     let grafico = document.querySelector("#grafico");
+                    
                     grafico.scrollIntoView();
 
                     window.dispatchEvent(new Event('resize'));

@@ -4,6 +4,8 @@ import grupo3.cpf.pessoa.Pessoa;
 import grupo3.cpf.pessoa.PessoaSpecs;
 import grupo3.cpf.pessoa.PessoaRepository;
 
+import java.net.URLDecoder;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -121,6 +123,8 @@ public class BuscaController {
         String url = builder.build().toString();
 
         url = url.substring(0, url.length() - 1);
+
+        url = URLDecoder.decode(url);
 
         int startPage;
         int endPage;
