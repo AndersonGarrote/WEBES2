@@ -1,4 +1,4 @@
-package grupo3.cpf;
+package grupo3.cpf.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,4 +1,8 @@
-package grupo3.cpf;
+package grupo3.cpf.controller;
+
+import grupo3.cpf.pessoa.Pessoa;
+import grupo3.cpf.pessoa.PessoaSpecs;
+import grupo3.cpf.pessoa.PessoaRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

@@ -1,4 +1,4 @@
-package grupo3.cpf;
+package grupo3.cpf.pessoa;
 
 import java.text.ParseException;
 import java.time.LocalDate;
