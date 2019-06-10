@@ -8,7 +8,7 @@
             <div class="input-group-prepend">
                 <label class="input-group-text" id="rg-label" for="rg">RG:</label>
             </div>
-            <input class="form-control" aria-label="RG" aria-describedby="rg-label" pattern="[0-9x]+" id="rg" name="rg" autofocus="" placeholder="Digite apenas números..." value="${param.rg}">
+            <input class="form-control" aria-label="RG" aria-describedby="rg-label" pattern="[0-9x]+" id="rg" name="rg" autofocus="" placeholder="Digite apenas dígitos..." value="${param.rg}">
             <div class="input-group-append">
                 <button class="btn btn-dark">
                     <i class="fas fa-search" title="Buscar" aria-hidden="true"></i> Buscar
