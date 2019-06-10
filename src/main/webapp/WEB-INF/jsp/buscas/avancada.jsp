@@ -20,9 +20,9 @@
 
                 var labels = document.getElementsByClassName('sort-label')
 
-                for (let label of labels) {
+                for (var label of labels) {
 
-                    let name = label.dataset.name
+                    var name = label.dataset.name
 
                     if (name == sort) {
                         label.setAttribute('data-order', order);
@@ -30,6 +30,7 @@
 
                     label.onclick = function (event) {
 
+                        var name = event.target.dataset.name;
 
                         if (sort == name && order == null || order == 'asc') {
                             urlParams.set('order', 'desc')
@@ -40,6 +41,7 @@
                         urlParams.set('sort', name)
 
                         window.location.search = urlParams.toString()
+
                     }
 
                 }

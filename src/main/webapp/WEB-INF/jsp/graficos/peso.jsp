@@ -15,26 +15,26 @@
 
                 const getEstado = urlParams.get('estado');
 
-                let estado = document.querySelector("option[value='" + getEstado + "']");
+                var estado = document.querySelector("option[value='" + getEstado + "']");
 
                 if(estado) {
                     estado.selected = true;
                 }
 
-                let sexo = document.querySelector("input[name=sexo]");
+                var sexo = document.querySelector("input[name=sexo]");
 
                 sexo.checked = urlParams.get("sexo") === "on";
 
-                let resultado = ${resultado}
+                var resultado = ${resultado}
 
                 if(Object.keys(resultado).length === 0) {
                     document.querySelector('#grafico').innerHTML = '<div class="alert alert-dark">Não foram encontrados dados com os parâmetros recebidos!</div>';
                     throw new Error('404');
                 }
                 
-                let data = []
+                var data = []
 
-                let binSize = 12;
+                var binSize = 12;
 
                 if(!sexo.checked) {
 
@@ -110,11 +110,11 @@
 
                 Plotly.newPlot("grafico", data, layout, { responsive: true })
 
-                let grafico = document.querySelector("#grafico");
+                var grafico = document.querySelector("#grafico");
                 grafico.scrollIntoView();
 
-                let binSizeText = document.querySelector("#binSizeText");
-                let binSizeSlider = document.querySelector("#binSizeSlider");
+                var binSizeText = document.querySelector("#binSizeText");
+                var binSizeSlider = document.querySelector("#binSizeSlider");
 
                 function updateBinSizeTextPosition() {
                     if(binSizeText.value > 25) {
@@ -125,7 +125,7 @@
                         binSizeText.value = 1;
                         binSizeSlider.value = 1;
                     }
-                    let percent = binSizeSlider.value / binSizeSlider.max;
+                    var percent = binSizeSlider.value / binSizeSlider.max;
                     binSizeText.style.marginLeft = 'calc(' + percent*100 +'% - ' + (percent + 0.25) * binSizeText.offsetWidth + 'px)';
                 }
 
@@ -139,7 +139,7 @@
                     updateBinSize(this.value);
                 }
 
-                let t;
+                var t;
 
                 binSizeText.oninput = function() {
                     clearTimeout(t);

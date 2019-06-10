@@ -14,7 +14,7 @@
                 $('#form-filtro').collapse('hide')
             });
 
-            let estado = document.querySelector("option[value='" + urlParams.get('estado') + "']");
+            var estado = document.querySelector("option[value='" + urlParams.get('estado') + "']");
 
             if(estado) {
                 estado.selected = true;
@@ -41,7 +41,7 @@
                     };
 
                     Plotly.newPlot("grafico", data, layout, { responsive: true });
-                    let grafico = document.querySelector("#grafico");
+                    var grafico = document.querySelector("#grafico");
                     
                     grafico.scrollIntoView();
 

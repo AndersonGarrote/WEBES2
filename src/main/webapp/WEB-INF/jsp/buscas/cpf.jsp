@@ -35,7 +35,7 @@
 
             $('[name=cpf]').bind('input', function() {
 
-                let cpf = $(this).val();
+                var cpf = $(this).val();
 
                 cpf = cpf.replace(/[^0-9]/g,'');
 
