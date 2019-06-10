@@ -38,9 +38,6 @@ public interface PessoaRepository extends PagingAndSortingRepository<Pessoa, Lon
     @Query(value = "SELECT sexo, peso, count(*) FROM Pessoa WHERE estado = ?1 GROUP BY sexo, peso", nativeQuery = true)
     Iterable<Object[]> countPesosByEstadoGroupBySexos(String estado);
 
-    Long countByAlturaBetween(Integer min, Integer max);
-    Long countByPesoBetween(Integer min, Integer max);
-
     Long countBySexo(String sexo);
     Long countByEstadoAndSexo(String estado, String sexo);
 

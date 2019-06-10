@@ -18,10 +18,10 @@
                 const sort = urlParams.get('sort')
                 const order = urlParams.get('order')
 
-                var labels = document.getElementsByClassName('sort-label')
+                var labels = document.querySelectorAll('.sort-label')
 
-                for (var label of labels) {
-
+                labels.forEach((label) => {
+                    
                     var name = label.dataset.name
 
                     if (name == sort) {
@@ -43,8 +43,7 @@
                         window.location.search = urlParams.toString()
 
                     }
-
-                }
+                });
 
                 urlParams.set('sort', 'cidade');
 
